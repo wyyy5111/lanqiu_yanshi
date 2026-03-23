@@ -1,3 +1,8 @@
+/* ========================================
+   PREMIUM BLACK & GOLD EFFECTS
+   Based on PPT color scheme: FFC000, FFD965, BF9000
+   ======================================== */
+
 @keyframes goldSweep {
   0% {
     transform: translateX(-140%);
@@ -17,44 +22,61 @@
   }
 }
 
+@keyframes auroraDrift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(1.5%, -2%, 0) scale(1.02);
+  }
+  66% {
+    transform: translate3d(-2%, 1.5%, 0) scale(0.99);
+  }
+}
+
+@keyframes spectrumShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes panelFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
 @keyframes pulseHalo {
   0%,
   100% {
-    opacity: 0.48;
+    opacity: 0.5;
     transform: scale(1);
   }
   50% {
-    opacity: 0.82;
-    transform: scale(1.04);
+    opacity: 0.8;
+    transform: scale(1.03);
   }
 }
 
 @keyframes fadeRise {
   0% {
     opacity: 0;
-    transform: translateY(18px) scale(0.98);
+    transform: translateY(16px) scale(0.98);
   }
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes scanTrail {
-  0% {
-    transform: translateY(-120%);
-  }
-  100% {
-    transform: translateY(220%);
-  }
-}
-
-@keyframes rhythmSpin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
   }
 }
 
@@ -74,7 +96,7 @@
   0%,
   100% {
     filter: blur(0px);
-    opacity: 0.3;
+    opacity: 0.4;
   }
   50% {
     filter: blur(1px);
@@ -91,26 +113,21 @@
   }
 }
 
-.gradient-text,
-.gradient-text-gold,
-.text-gold-luxury,
-.text-gold-metallic,
-.text-gold-shine {
-  animation: pulseHalo 6s ease-in-out infinite;
-}
+/* ========================================
+   PREMIUM GOLD BUTTON - Clean & Luxurious
+   ======================================== */
 
 .btn-neon {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(var(--section-accent-rgb), 0.38);
-  background:
-    linear-gradient(135deg, rgba(255, 248, 225, 0.22), rgba(255, 248, 225, 0.02)),
-    linear-gradient(135deg, color-mix(in srgb, var(--section-accent) 58%, #3c2708), color-mix(in srgb, var(--section-accent) 82%, #f8dd93), color-mix(in srgb, var(--section-accent) 55%, #6a4a15));
-  color: #160f05;
+  border: 2px solid rgba(255, 192, 0, 0.5);
+  background: linear-gradient(135deg, #FFC000 0%, #BF9000 100%);
+  color: #0A0A0A;
+  font-weight: 600;
   box-shadow:
-    0 18px 36px rgba(0, 0, 0, 0.22),
-    0 0 26px rgba(var(--section-accent-rgb), 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    0 20px 50px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 192, 0, 0.25),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
   transition:
     transform var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-fast) var(--ease-standard),
@@ -121,44 +138,64 @@
   content: "";
   position: absolute;
   inset: -20%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.34), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   opacity: 0.7;
   transform: translateX(-140%);
 }
 
 .btn-neon:hover {
-  transform: translateY(-2px);
-  border-color: rgba(var(--section-accent-rgb), 0.6);
+  transform: translateY(-3px);
+  border-color: rgba(255, 192, 0, 0.8);
   box-shadow:
-    0 22px 42px rgba(0, 0, 0, 0.26),
-    0 0 34px rgba(var(--section-accent-rgb), 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    0 28px 60px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(255, 192, 0, 0.35),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
 }
 
 .btn-neon:hover::before {
-  animation: goldSweep 1.15s var(--ease-standard) forwards;
+  animation: goldSweep 0.7s var(--ease-standard) forwards;
 }
 
-html.light .btn-neon {
+.btn-neon:active {
+  transform: translateY(-1px);
   box-shadow:
-    0 18px 32px rgba(122, 84, 23, 0.14),
-    0 0 24px rgba(var(--section-accent-rgb), 0.14),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 22px 50px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(255, 192, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Light theme variation */
+html.light .btn-neon {
+  background: linear-gradient(135deg, #FFC000 0%, #E6B000 100%);
+  box-shadow:
+    0 20px 50px rgba(120, 80, 0, 0.15),
+    0 0 40px rgba(255, 192, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.5);
 }
 
 html.light .btn-neon:hover {
   box-shadow:
-    0 22px 38px rgba(122, 84, 23, 0.18),
-    0 0 28px rgba(var(--section-accent-rgb), 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.62);
+    0 28px 60px rgba(120, 80, 0, 0.2),
+    0 0 50px rgba(255, 192, 0, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.6);
 }
 
+/* ========================================
+   PREMIUM GOLD INPUT
+   ======================================== */
+
 .input-glass {
-  border: 1px solid rgba(255, 217, 126, 0.14);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 2px solid rgba(255, 192, 0, 0.25);
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.12), transparent 34%),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.06), rgba(255, 192, 0, 0.04)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
   color: var(--text-1);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 0 25px rgba(255, 192, 0, 0.08);
+  backdrop-filter: blur(24px) saturate(1.4);
   transition:
     border-color var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-fast) var(--ease-standard),
@@ -166,364 +203,157 @@ html.light .btn-neon:hover {
 }
 
 .input-glass:focus {
-  border-color: rgba(var(--section-accent-rgb), 0.5);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.04));
+  border-color: rgba(255, 192, 0, 0.65);
+  background:
+    linear-gradient(125deg, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.1), rgba(255, 192, 0, 0.06)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 0 0 4px rgba(var(--section-accent-rgb), 0.1);
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    0 0 0 4px rgba(255, 192, 0, 0.1),
+    0 0 35px rgba(255, 192, 0, 0.15);
 }
 
+.input-glass::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Light theme variation */
 html.light .input-glass {
-  border-color: rgba(121, 86, 25, 0.18);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 236, 218, 0.88));
+  border-color: rgba(191, 144, 0, 0.25);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 240, 228, 0.95));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.92),
-    0 10px 22px rgba(121, 86, 25, 0.05);
+    inset 0 2px 0 rgba(255, 255, 255, 0.95),
+    0 12px 32px rgba(120, 80, 0, 0.08);
 }
 
 html.light .input-glass:focus {
-  border-color: rgba(var(--section-accent-rgb), 0.42);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(248, 240, 224, 0.96));
+  border-color: rgba(191, 144, 0, 0.5);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 245, 235, 0.98));
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.96),
-    0 0 0 4px rgba(var(--section-accent-rgb), 0.1),
-    0 14px 28px rgba(121, 86, 25, 0.08);
+    inset 0 2px 0 rgba(255, 255, 255, 0.98),
+    0 0 0 4px rgba(191, 144, 0, 0.1),
+    0 16px 36px rgba(120, 80, 0, 0.1);
 }
 
-.focus-ring-gradient {
-  position: relative;
-  border-radius: inherit;
-}
+/* ========================================
+   PREMIUM GLASS PRISM PANEL
+   ======================================== */
 
-.focus-ring-gradient::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  background: linear-gradient(120deg, transparent, rgba(var(--section-accent-rgb), 0.45), transparent);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--duration-fast) var(--ease-standard);
-}
-
-.focus-ring-gradient:focus-within::before {
-  opacity: 1;
-}
-
-.u-ripple {
+.glass-prism-panel,
+.iridescent-shell {
   position: relative;
   overflow: hidden;
-}
-
-.u-ripple::after {
-  content: "";
-  position: absolute;
-  inset: auto auto 50% 50%;
-  width: 0;
-  height: 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.24);
-  transform: translate(-50%, -50%);
-  transition: width 0.5s ease, height 0.5s ease;
-}
-
-.u-ripple:active::after {
-  width: 260px;
-  height: 260px;
-}
-
-.u-kpi-card {
-  position: relative;
-  border-radius: var(--radius-md);
-  background:
-    radial-gradient(circle at top right, rgba(255, 214, 115, 0.12), transparent 30%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
-  border: 1px solid rgba(255, 217, 126, 0.14);
-  overflow: hidden;
-}
-
-.u-kpi-badge {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background: var(--gradient-gold);
-  box-shadow: 0 0 18px rgba(245, 201, 92, 0.42);
-}
-
-.u-kpi-value {
-  font-family: var(--font-data);
-  letter-spacing: 0.02em;
-}
-
-.avatar-anim {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(255, 217, 126, 0.28);
-  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22), 0 0 28px rgba(245, 201, 92, 0.12);
-}
-
-.avatar-anim::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.24), transparent 42%);
-  pointer-events: none;
-}
-
-.u-progress-ring {
-  position: relative;
-  width: 88px;
-  height: 88px;
-}
-
-.u-progress-ring svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-
-.u-progress-ring-bg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.08);
-  stroke-width: 8;
-}
-
-.u-progress-ring-progress,
-.progress-circle {
-  fill: none;
-  stroke: var(--section-accent);
-  stroke-width: 8;
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 10px rgba(var(--section-accent-rgb), 0.52));
-  transition: stroke-dashoffset 0.9s var(--ease-emphasis);
-}
-
-.u-ionic-separator {
-  height: 1px;
-  background: var(--line-gold);
-  box-shadow: var(--glow-soft);
-}
-
-.u-four-color-grid,
-.tag-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.u-color-tag,
-.tag-quadrant {
-  position: relative;
-  min-height: 128px;
-  padding: 16px 16px 14px;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 217, 126, 0.14);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.02)),
-    radial-gradient(circle at top right, rgba(var(--tag-accent, var(--section-accent-rgb)), 0.14), transparent 34%);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-}
-
-.u-color-tag::before,
-.tag-quadrant::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 3px;
-  border-radius: inherit;
-  background: linear-gradient(180deg, rgba(var(--tag-accent, var(--section-accent-rgb)), 0.16), rgba(var(--tag-accent, var(--section-accent-rgb)), 0.92), rgba(var(--tag-accent, var(--section-accent-rgb)), 0.2));
-}
-
-.u-color-tag.tag-strength,
-.tag-quadrant.tag-strength {
-  --tag-accent: 245 201 92;
-}
-
-.u-color-tag.tag-improve,
-.tag-quadrant.tag-improvement {
-  --tag-accent: 242 164 78;
-}
-
-.u-color-tag.tag-suggest,
-.tag-quadrant.tag-suggestion {
-  --tag-accent: 220 186 110;
-}
-
-.u-color-tag.tag-risk,
-.tag-quadrant.tag-summary {
-  --tag-accent: 217 198 132;
-}
-
-.tag-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.tag-icon {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
-  background: rgba(var(--tag-accent, var(--section-accent-rgb)), 0.14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.tag-title {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--text-1);
-  letter-spacing: 0.02em;
-}
-
-.tag-content {
-  display: grid;
-  gap: 8px;
-  color: var(--text-2);
-  font-size: 0.82rem;
-  line-height: 1.55;
-}
-
-.u-ai-card-enter,
-.ai-result-enter {
-  animation: fadeRise 420ms var(--ease-emphasis);
-}
-
-.u-dribbling-container,
-.u-shooting-container,
-.u-defense-container {
-  position: relative;
   isolation: isolate;
 }
 
-.u-dribbling-rhythm-board,
-.u-shooting-arc-overlay,
-.u-shield-background {
+.glass-prism-panel::before,
+.iridescent-shell::before {
+  content: "";
   position: absolute;
-  inset: 0;
+  inset: -2px;
   pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent 25%, rgba(255, 192, 0, 0.1) 45%, transparent 65%, rgba(255, 192, 0, 0.08) 85%),
+    radial-gradient(circle at top left, rgba(255, 192, 0, 0.15), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(255, 192, 0, 0.12), transparent 26%);
+  opacity: 1;
 }
 
-.u-dribbling-rhythm-board::before {
+.glass-prism-panel::after,
+.iridescent-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% -25% 12%;
+  height: 40%;
+  border-radius: 999px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(255, 192, 0, 0.2), transparent 28%),
+    radial-gradient(circle at 80% 50%, rgba(255, 192, 0, 0.15), transparent 28%),
+    radial-gradient(circle at 50% 50%, rgba(255, 192, 0, 0.18), transparent 35%);
+  filter: blur(40px);
+  opacity: 0.7;
+}
+
+/* ========================================
+   PREMIUM HOLOGRAPHIC CHIP
+   ======================================== */
+
+.holo-chip {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 192, 0, 0.25);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05)),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.08), rgba(255, 192, 0, 0.04));
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.15),
+    0 0 20px rgba(255, 192, 0, 0.1);
+  backdrop-filter: blur(20px);
+}
+
+.holo-chip::after {
   content: "";
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 217, 126, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 217, 126, 0.06) 1px, transparent 1px);
-  background-size: 36px 36px;
-  mask-image: radial-gradient(circle at center, black, transparent 78%);
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 0, 0.3), transparent);
+  transform: translateX(-140%);
+  animation: goldSweep 5s linear infinite;
   opacity: 0.4;
 }
 
-.u-beat-particles {
-  position: absolute;
-  inset: 0;
+/* Light theme variation */
+html.light .holo-chip {
+  border-color: rgba(191, 144, 0, 0.2);
   background:
-    radial-gradient(circle at 20% 32%, rgba(255, 217, 126, 0.45) 0 2px, transparent 2px),
-    radial-gradient(circle at 78% 26%, rgba(255, 217, 126, 0.35) 0 2px, transparent 2px),
-    radial-gradient(circle at 62% 72%, rgba(255, 217, 126, 0.28) 0 2px, transparent 2px),
-    radial-gradient(circle at 36% 78%, rgba(255, 217, 126, 0.24) 0 2px, transparent 2px);
-  animation: floatDrift 7s ease-in-out infinite;
-  opacity: 0.5;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3)),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.06), rgba(255, 192, 0, 0.03));
 }
 
-.u-rhythm-pulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180px;
-  height: 180px;
-  border-radius: 999px;
-  transform: translate(-50%, -50%);
+/* ========================================
+   PREMIUM METRIC TILE
+   ======================================== */
+
+.metric-tile {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 192, 0, 0.2);
   background:
-    radial-gradient(circle, rgba(255, 217, 126, 0.08) 0%, transparent 60%),
-    conic-gradient(from 0deg, transparent 0deg, rgba(255, 217, 126, 0.18) 75deg, transparent 150deg, rgba(255, 217, 126, 0.12) 220deg, transparent 360deg);
-  opacity: 0.5;
-  animation: rhythmSpin 10s linear infinite;
-  pointer-events: none;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.08), rgba(255, 192, 0, 0.04));
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    0 24px 48px rgba(0, 0, 0, 0.25);
 }
 
-.u-shooting-arc-overlay::before {
+.metric-tile::before {
   content: "";
   position: absolute;
-  inset: 10% 10% auto auto;
-  width: min(38vw, 320px);
-  height: min(22vw, 180px);
-  border-top: 1px solid rgba(255, 217, 126, 0.18);
-  border-right: 1px solid rgba(255, 217, 126, 0.18);
-  border-radius: 100% 100% 0 0;
-  filter: drop-shadow(0 0 12px rgba(245, 201, 92, 0.16));
+  inset: auto -12% 10% -12%;
+  height: 50px;
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 0, 0.15) 20%, rgba(255, 192, 0, 0.7) 50%, rgba(255, 192, 0, 0.15) 80%, transparent);
+  filter: blur(20px);
+  opacity: 0.6;
 }
 
-.u-shooting-sparks {
-  position: absolute;
-  top: 16%;
-  right: 14%;
-  width: 90px;
-  height: 90px;
+.micro-tile {
+  backdrop-filter: blur(20px) saturate(1.3);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.08), 0 18px 36px rgba(0, 0, 0, 0.2);
+}
+
+/* Light theme variation */
+html.light .metric-tile {
+  border-color: rgba(191, 144, 0, 0.18);
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 217, 126, 0.8) 0 1px, transparent 1px),
-    radial-gradient(circle at 28% 70%, rgba(255, 217, 126, 0.56) 0 1px, transparent 1px),
-    radial-gradient(circle at 70% 22%, rgba(255, 217, 126, 0.4) 0 1px, transparent 1px);
-  background-size: 24px 24px;
-  animation: orbitGlow 4s ease-in-out infinite;
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(248, 241, 230, 0.85)),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.05), rgba(255, 192, 0, 0.02));
 }
 
-.u-shield-background::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: min(24vw, 260px);
-  aspect-ratio: 0.9;
-  transform: translate(-50%, -50%);
-  border: 1px solid rgba(255, 217, 126, 0.14);
-  clip-path: polygon(50% 0%, 100% 24%, 100% 72%, 50% 100%, 0% 72%, 0% 24%);
-  background:
-    linear-gradient(180deg, rgba(255, 217, 126, 0.06), transparent),
-    radial-gradient(circle at top, rgba(255, 217, 126, 0.12), transparent 45%);
-  filter: drop-shadow(0 0 20px rgba(245, 201, 92, 0.12));
-}
-
-.hero-scroll-indicator::before {
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-
-.flowline-stage > * {
-  opacity: 0.86;
-  transform: translateY(10px);
-  transition:
-    opacity var(--duration-mid) var(--ease-standard),
-    transform var(--duration-mid) var(--ease-standard);
-}
-
-.flowline-stage.is-activated > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.flowline-stage > *:nth-child(2) {
-  transition-delay: 70ms;
-}
-
-.flowline-stage > *:nth-child(3) {
-  transition-delay: 140ms;
-}
-
-.u-chart .recharts-cartesian-grid-horizontal line,
-.u-chart .recharts-cartesian-grid-vertical line {
-  opacity: 0.8;
-}
-
-.u-chart .recharts-surface {
-  overflow: visible;
-}
+/* ========================================
+   TECH GRID SURFACE - GOLD
+   ======================================== */
 
 .tech-grid-surface {
   position: relative;
@@ -537,24 +367,37 @@ html.light .input-glass:focus {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 217, 126, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 217, 126, 0.08) 1px, transparent 1px);
-  background-size: 42px 42px;
-  mask-image: radial-gradient(circle at center, black 14%, transparent 80%);
-  opacity: 0.34;
+    linear-gradient(rgba(255, 192, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 192, 0, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at center, black 18%, transparent 75%);
+  opacity: 0.6;
 }
 
 .tech-grid-surface::after {
   content: "";
   position: absolute;
-  inset: auto -18% 16% -18%;
+  inset: auto -20% 16% -20%;
   height: 120px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(255, 217, 126, 0.22), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 0, 0.2) 20%, rgba(255, 192, 0, 0.8) 50%, rgba(255, 192, 0, 0.2) 80%, transparent);
   filter: blur(20px);
-  opacity: 0.7;
-  animation: beamSweep 8.5s linear infinite;
+  opacity: 0.8;
+  animation: beamSweep 8s linear infinite;
 }
+
+/* Light theme variation */
+html.light .tech-grid-surface::before {
+  opacity: 0.3;
+}
+
+html.light .tech-grid-surface::after {
+  background: linear-gradient(90deg, transparent, rgba(191, 144, 0, 0.15) 20%, rgba(191, 144, 0, 0.6) 50%, rgba(191, 144, 0, 0.15) 80%, transparent);
+}
+
+/* ========================================
+   TECH ORBIT - GOLD ANIMATION
+   ======================================== */
 
 .tech-orbit {
   position: relative;
@@ -574,17 +417,18 @@ html.light .input-glass:focus {
 }
 
 .tech-orbit::before {
-  border: 1px solid rgba(255, 217, 126, 0.24);
+  border: 2px solid rgba(255, 192, 0, 0.35);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 0 44px rgba(245, 201, 92, 0.18);
-  animation: rhythmSpin 18s linear infinite;
+    inset 0 0 0 2px rgba(255, 255, 255, 0.06),
+    0 0 50px rgba(255, 192, 0, 0.2),
+    0 0 80px rgba(255, 192, 0, 0.12);
+  animation: rhythmSpin 20s linear infinite;
 }
 
 .tech-orbit::after {
-  inset: 18px;
-  border: 1px dashed rgba(255, 217, 126, 0.18);
-  animation: rhythmSpin 12s linear infinite reverse;
+  inset: 20px;
+  border: 2px dashed rgba(255, 192, 0, 0.25);
+  animation: rhythmSpin 14s linear infinite reverse;
 }
 
 .tech-orbit-core {
@@ -592,10 +436,14 @@ html.light .input-glass:focus {
   display: grid;
   place-items: center;
   border-radius: 999px;
+  background-image:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05)),
+    linear-gradient(135deg, rgba(255, 192, 0, 0.1), rgba(255, 192, 0, 0.05));
   box-shadow:
-    0 0 40px rgba(245, 201, 92, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.24);
-  animation: pulseHalo 5.8s ease-in-out infinite;
+    0 0 40px rgba(255, 192, 0, 0.25),
+    0 0 60px rgba(255, 192, 0, 0.15),
+    inset 0 2px 0 rgba(255, 255, 255, 0.25);
+  animation: pulseHalo 5s ease-in-out infinite;
 }
 
 .tech-orbit-core::before {
@@ -603,8 +451,8 @@ html.light .input-glass:focus {
   position: absolute;
   inset: -24px;
   border-radius: inherit;
-  border: 1px solid rgba(255, 217, 126, 0.12);
-  opacity: 0.75;
+  border: 2px solid rgba(255, 192, 0, 0.2);
+  opacity: 0.7;
 }
 
 .tech-orbit-dot {
@@ -612,10 +460,32 @@ html.light .input-glass:focus {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: var(--gradient-gold);
-  box-shadow: 0 0 18px rgba(245, 201, 92, 0.42);
-  animation: floatDrift 6s ease-in-out infinite;
+  background: linear-gradient(135deg, #FFC000, #FFD965);
+  box-shadow: 0 0 14px rgba(255, 192, 0, 0.5), 0 0 24px rgba(255, 192, 0, 0.3);
+  animation: floatDrift 5s ease-in-out infinite;
 }
+
+/* Light theme variation */
+html.light .tech-orbit::before {
+  border-color: rgba(191, 144, 0, 0.3);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.5),
+    0 0 50px rgba(191, 144, 0, 0.18);
+}
+
+html.light .tech-orbit::after {
+  border-color: rgba(191, 144, 0, 0.2);
+}
+
+html.light .tech-orbit-core {
+  box-shadow:
+    0 0 40px rgba(191, 144, 0, 0.18),
+    inset 0 2px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* ========================================
+   TECH RAIL - GOLD LINE
+   ======================================== */
 
 .tech-rail {
   position: relative;
@@ -624,49 +494,307 @@ html.light .input-glass:focus {
 .tech-rail::before {
   content: "";
   position: absolute;
-  left: 11px;
-  top: 8px;
-  bottom: 8px;
-  width: 1px;
-  background: linear-gradient(180deg, rgba(255, 217, 126, 0.12), rgba(255, 217, 126, 0.9), rgba(255, 217, 126, 0.12));
-  box-shadow: var(--glow-soft);
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(255, 192, 0, 0.8), rgba(255, 192, 0, 0.4), transparent);
+  box-shadow: 0 0 15px rgba(255, 192, 0, 0.3);
 }
 
-html.light .tech-grid-surface::before {
-  opacity: 0.18;
-}
-
-html.light .tech-grid-surface::after {
-  background: linear-gradient(90deg, transparent, rgba(121, 86, 25, 0.16), transparent);
-}
-
-html.light .tech-orbit::before {
-  border-color: rgba(121, 86, 25, 0.24);
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.4),
-    0 0 36px rgba(190, 131, 32, 0.14);
-}
-
-html.light .tech-orbit::after {
-  border-color: rgba(121, 86, 25, 0.16);
-}
-
-html.light .tech-orbit-core {
-  box-shadow:
-    0 0 28px rgba(190, 131, 32, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
+/* Light theme variation */
 html.light .tech-rail::before {
-  background: linear-gradient(180deg, rgba(121, 86, 25, 0.08), rgba(121, 86, 25, 0.74), rgba(121, 86, 25, 0.08));
+  background: linear-gradient(180deg, transparent, rgba(191, 144, 0, 0.7), rgba(191, 144, 0, 0.3), transparent);
 }
 
-@media (max-width: 900px) {
+/* ========================================
+   SPECTRAL STAGE
+   ======================================== */
+
+.spectral-stage {
+  animation: panelFloat 7s ease-in-out infinite;
+}
+
+/* ========================================
+   ENERGY FRAME
+   ======================================== */
+
+.energy-frame {
+  box-shadow: var(--shadow-prism), inset 0 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   FOCUS RING GRADIENT
+   ======================================== */
+
+.focus-ring-gradient {
+  position: relative;
+  border-radius: inherit;
+}
+
+.focus-ring-gradient::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent, rgba(255, 192, 0, 0.5), transparent);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.focus-ring-gradient:focus-within::before {
+  opacity: 1;
+}
+
+/* ========================================
+   RIPPLE EFFECT
+   ======================================== */
+
+.u-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.u-ripple::after {
+  content: "";
+  position: absolute;
+  inset: auto auto 50% 50%;
+  width: 0;
+  height: 0;
+  border-radius: 999px;
+  background: rgba(255, 192, 0, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.u-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ========================================
+   AVATAR ANIMATED
+   ======================================== */
+
+.avatar-anim {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid rgba(255, 192, 0, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), 0 0 40px rgba(255, 192, 0, 0.15);
+}
+
+.avatar-anim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.25), transparent 40%);
+  pointer-events: none;
+}
+
+/* ========================================
+   PROGRESS RING
+   ======================================== */
+
+.u-progress-ring {
+  position: relative;
+  width: 88px;
+  height: 88px;
+}
+
+.u-progress-ring svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.u-progress-ring-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 8;
+}
+
+.progress-circle,
+.u-progress-ring-progress {
+  fill: none;
+  stroke: var(--section-accent);
+  stroke-width: 8;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 10px rgba(255, 192, 0, 0.6));
+  transition: stroke-dashoffset 0.9s var(--ease-emphasis);
+}
+
+/* ========================================
+   IONIC SEPARATOR
+   ======================================== */
+
+.u-ionic-separator {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 192, 0, 0.2) 10%, rgba(255, 192, 0, 0.8) 50%, rgba(255, 192, 0, 0.2) 90%, transparent);
+  box-shadow: 0 0 15px rgba(255, 192, 0, 0.4);
+}
+
+/* ========================================
+   FOUR COLOR GRID & TAGS
+   ======================================== */
+
+.u-four-color-grid,
+.tag-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.u-color-tag,
+.tag-quadrant {
+  position: relative;
+  min-height: 140px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 192, 0, 0.2);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at top right, rgba(255, 192, 0, 0.15), transparent 32%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.08);
+}
+
+.u-color-tag::before,
+.tag-quadrant::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  border-radius: inherit;
+  background: linear-gradient(180deg, transparent, rgba(255, 192, 0, 0.3), rgba(255, 192, 0, 0.8), rgba(255, 192, 0, 0.3), transparent);
+}
+
+.tag-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tag-icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 192, 0, 0.15);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.12), 0 0 18px rgba(255, 192, 0, 0.12);
+}
+
+.tag-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: 0.02em;
+}
+
+.tag-content {
+  display: grid;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+/* Light theme variation */
+html.light .u-color-tag,
+html.light .tag-quadrant {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 241, 230, 0.8)),
+    radial-gradient(circle at top right, rgba(255, 192, 0, 0.1), transparent 32%);
+}
+
+/* ========================================
+   CHART STYLES
+   ======================================== */
+
+.u-chart .recharts-cartesian-grid-horizontal line,
+.u-chart .recharts-cartesian-grid-vertical line {
+  opacity: 0.9;
+}
+
+.u-chart .recharts-surface {
+  overflow: visible;
+}
+
+/* ========================================
+   SCROLL INDICATOR
+   ======================================== */
+
+.hero-scroll-indicator::before {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   FLOWLINE STAGE
+   ======================================== */
+
+.flowline-stage > * {
+  opacity: 0.9;
+  transform: translateY(12px);
+  transition:
+    opacity var(--duration-mid) var(--ease-standard),
+    transform var(--duration-mid) var(--ease-standard);
+}
+
+.flowline-stage.is-activated > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flowline-stage > *:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.flowline-stage > *:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+/* ========================================
+   CARD GLASS BASE
+   ======================================== */
+
+.u-card-glass,
+.glass-luxury {
+  backdrop-filter: blur(24px) saturate(1.3);
+  -webkit-backdrop-filter: blur(24px) saturate(1.3);
+}
+
+/* ========================================
+   ANIMATION UTILITIES
+   ======================================== */
+
+.u-ai-card-enter,
+.ai-result-enter {
+  animation: fadeRise 500ms var(--ease-emphasis);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
   .u-four-color-grid,
   .tag-grid {
     grid-template-columns: 1fr;
   }
+
+  .glass-luxury,
+  .u-card-glass,
+  .u-surface-light,
+  .u-surface-dark,
+  .glass-card {
+    border-radius: var(--radius-md);
+  }
 }
+
+/* ========================================
+   REDUCED MOTION
+   ======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .gradient-text,
@@ -674,12 +802,31 @@ html.light .tech-rail::before {
   .text-gold-luxury,
   .text-gold-metallic,
   .text-gold-shine,
+  .gold-shimmer,
+  .gold-pulse-glow,
+  .gold-border-pulse,
   .u-ai-card-enter,
   .ai-result-enter,
   .u-beat-particles,
   .u-rhythm-pulse,
   .u-shooting-sparks,
-  .hero-scroll-indicator::before {
+  .hero-scroll-indicator::before,
+  .holo-chip::after,
+  .spectral-stage,
+  .tech-grid-surface::after,
+  .tech-orbit::before,
+  .tech-orbit::after,
+  .tech-orbit-dot {
     animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

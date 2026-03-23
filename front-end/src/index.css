@@ -26,10 +26,11 @@ body {
   margin: 0;
   color: var(--text-1);
   background:
-    radial-gradient(circle at top left, rgba(255, 217, 126, 0.16), transparent 28%),
-    radial-gradient(circle at top right, rgba(255, 168, 61, 0.08), transparent 24%),
-    radial-gradient(circle at bottom center, rgba(255, 214, 115, 0.08), transparent 28%),
-    linear-gradient(180deg, #040404, #08080a 36%, #050506 100%);
+    radial-gradient(circle at 12% 10%, rgba(255, 217, 126, 0.16), transparent 22%),
+    radial-gradient(circle at 88% 14%, rgba(99, 220, 255, 0.14), transparent 20%),
+    radial-gradient(circle at 78% 82%, rgba(255, 119, 215, 0.12), transparent 22%),
+    radial-gradient(circle at 28% 78%, rgba(156, 125, 255, 0.08), transparent 20%),
+    linear-gradient(180deg, #030305, #070710 38%, #040406 100%);
   font-family: var(--font-ui);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -47,33 +48,38 @@ body::after {
 
 body::before {
   background:
-    radial-gradient(circle at 14% 18%, rgba(255, 219, 129, 0.14), transparent 24%),
-    radial-gradient(circle at 82% 12%, rgba(255, 173, 74, 0.09), transparent 22%),
-    radial-gradient(circle at 52% 88%, rgba(255, 219, 129, 0.08), transparent 24%);
-  filter: blur(18px);
+    radial-gradient(circle at 14% 18%, rgba(255, 219, 129, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(99, 220, 255, 0.16), transparent 22%),
+    radial-gradient(circle at 66% 72%, rgba(255, 119, 215, 0.16), transparent 24%),
+    radial-gradient(circle at 52% 88%, rgba(156, 125, 255, 0.12), transparent 24%);
+  filter: blur(28px);
+  animation: auroraDrift 28s ease-in-out infinite;
 }
 
 body::after {
   background-image:
     linear-gradient(rgba(255, 217, 126, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 217, 126, 0.04) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(99, 220, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 119, 215, 0.025) 1px, transparent 1px);
   background-size: 42px 42px;
   mask-image: radial-gradient(circle at center, black 25%, transparent 82%);
-  opacity: 0.28;
+  opacity: 0.32;
 }
 
 html.light body {
   background:
     radial-gradient(circle at top left, rgba(174, 130, 38, 0.12), transparent 32%),
-    radial-gradient(circle at top right, rgba(241, 189, 83, 0.14), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(255, 211, 120, 0.18), transparent 28%),
+    radial-gradient(circle at 88% 14%, rgba(25, 132, 197, 0.12), transparent 22%),
+    radial-gradient(circle at 76% 82%, rgba(184, 79, 155, 0.11), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(255, 211, 120, 0.16), transparent 28%),
     linear-gradient(180deg, #f3e8d3, #f6efdf 42%, #efe4d0 100%);
 }
 
 html.light body::before {
   background:
     radial-gradient(circle at 12% 14%, rgba(174, 130, 38, 0.1), transparent 22%),
-    radial-gradient(circle at 86% 18%, rgba(226, 174, 79, 0.1), transparent 22%),
+    radial-gradient(circle at 86% 18%, rgba(25, 132, 197, 0.1), transparent 22%),
+    radial-gradient(circle at 62% 72%, rgba(184, 79, 155, 0.08), transparent 20%),
     radial-gradient(circle at 50% 86%, rgba(174, 130, 38, 0.08), transparent 24%);
 }
 
@@ -151,7 +157,7 @@ html.light :where(.glass-luxury, .u-card-glass, .glass-card, .u-surface-light, .
 
 html.light .gradient-text,
 html.light .gradient-text-gold {
-  filter: saturate(0.92) brightness(0.88);
+  filter: saturate(0.96) brightness(0.9);
 }
 
 #root {

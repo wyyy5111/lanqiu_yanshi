@@ -26,7 +26,7 @@ export function AnglePanel({ angles, className }: AnglePanelProps) {
           <Card 
             key={angle.id} 
             className={cn(
-              'glass-card relative overflow-hidden border-white/8 transition-transform duration-300 hover:-translate-y-1',
+              'glass-card glass-prism-panel relative overflow-hidden border-white/8 transition-transform duration-300 hover:-translate-y-1',
               !isNormal && 'border-[rgba(242,141,69,0.3)]'
             )}
             style={{ animationDelay: `${index * 100}ms` }}
@@ -77,6 +77,17 @@ export function AnglePanel({ angles, className }: AnglePanelProps) {
                   <span className={cn('inline-block h-1.5 w-1.5 rounded-full', isNormal ? 'bg-gold-400' : 'bg-[#ffbb87]')} />
                   阈值 {angle.threshold.toFixed(1)} {angle.unit ?? '°'}
                 </p>
+                <div className="h-1.5 rounded-full bg-white/8">
+                  <div
+                    className={cn(
+                      'h-full rounded-full',
+                      isNormal
+                        ? 'bg-[linear-gradient(90deg,#63dcff,#f5c95c,#ff77d7)]'
+                        : 'bg-[linear-gradient(90deg,rgba(242,141,69,0.86),rgba(255,187,135,0.74))]',
+                    )}
+                    style={{ width: `${Math.min(100, Math.max(18, (angle.value / Math.max(angle.threshold, 1)) * 62))}%` }}
+                  />
+                </div>
               </div>
               {angle.description ? (
                 <div className="max-w-[14rem] text-right">
