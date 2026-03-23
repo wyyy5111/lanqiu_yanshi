@@ -137,7 +137,7 @@ ${report.analysisResult.suggestions.map(s => `• ${s}`).join('\n')}
     <div className="space-y-8 animate-fade-in">
       <Card className="u-card-glass relative overflow-hidden">
         <CardHeader className="relative z-10">
-          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-white">
+          <CardTitle className="flex items-center gap-3 text-lg font-semibold text-[var(--text-1)]">
             <div className="flex h-10 w-10 items-center justify-center rounded-[16px] bg-[linear-gradient(135deg,#7a5614,#f0c661)] text-[#170f05] shadow-[0_16px_30px_rgba(0,0,0,0.22)]">
               <Target className="w-5 h-5" />
             </div>
@@ -157,7 +157,7 @@ ${report.analysisResult.suggestions.map(s => `• ${s}`).join('\n')}
       <Card className="u-card-glass relative overflow-hidden">
         <CardHeader className="relative z-10">
           <CardTitle className="flex items-center justify-between">
-            <span className="flex items-center gap-3 text-lg font-semibold text-white">
+            <span className="flex items-center gap-3 text-lg font-semibold text-[var(--text-1)]">
               <div className="flex h-10 w-10 items-center justify-center rounded-[16px] bg-[linear-gradient(135deg,#7a5614,#f0c661)] text-[#170f05] shadow-[0_16px_30px_rgba(0,0,0,0.22)]">
                 <Star className="w-5 h-5" />
               </div>
@@ -169,16 +169,16 @@ ${report.analysisResult.suggestions.map(s => `• ${s}`).join('\n')}
           </CardTitle>
         </CardHeader>
         <CardContent className="relative z-10 space-y-6">
-          <div className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4">
-            <h4 className="mb-3 text-base font-semibold text-white">分析总结</h4>
+          <div className="rounded-[22px] border border-[var(--border-soft)] bg-[var(--surface-1)] p-4">
+            <h4 className="mb-3 text-base font-semibold text-[var(--text-1)]">分析总结</h4>
             <p className="text-sm leading-relaxed text-[var(--text-2)]">{aiAnalysis.summary}</p>
           </div>
 
           <div className="u-sep-aurora" />
 
           <div className="grid gap-6 md:grid-cols-2">
-            <div className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4">
-              <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-white">
+            <div className="rounded-[22px] border border-[var(--border-soft)] bg-[var(--surface-1)] p-4">
+              <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-[var(--text-1)]">
                 <TrendingUp className="w-5 h-5" />
                 优势方面
               </h4>
@@ -192,8 +192,8 @@ ${report.analysisResult.suggestions.map(s => `• ${s}`).join('\n')}
               </ul>
             </div>
 
-            <div className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4">
-              <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-white">
+            <div className="rounded-[22px] border border-[var(--border-soft)] bg-[var(--surface-1)] p-4">
+              <h4 className="mb-3 flex items-center gap-2 text-base font-semibold text-[var(--text-1)]">
                 <TrendingDown className="w-5 h-5" />
                 需要改进
               </h4>
@@ -208,8 +208,8 @@ ${report.analysisResult.suggestions.map(s => `• ${s}`).join('\n')}
             </div>
           </div>
 
-          <div className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4">
-            <h4 className="mb-3 text-base font-semibold text-white">训练建议</h4>
+          <div className="rounded-[22px] border border-[var(--border-soft)] bg-[var(--surface-1)] p-4">
+            <h4 className="mb-3 text-base font-semibold text-[var(--text-1)]">训练建议</h4>
             <ul className="space-y-2">
               {aiAnalysis.suggestions.map((suggestion, index) => (
                 <li key={index} className="flex items-start gap-3 text-sm text-[var(--text-2)]">

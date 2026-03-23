@@ -73,7 +73,7 @@ export function RoleTabsLayout({ tabs, activeKey, children, title, subtitle }: R
                   isLight ? 'border-[var(--border-soft)] bg-white/75 text-[var(--text-2)]' : 'border-[var(--border-soft)] bg-white/[0.05] text-[var(--text-3)]',
                 )}
               >
-                <span className="h-2 w-2 rounded-full bg-gold-400 shadow-[0_0_12px_rgba(245,201,92,0.6)]" />
+                <span className="h-2 w-2 rounded-full bg-[var(--accent)] shadow-[0_0_12px_rgba(255,192,0,0.6)]" />
                 青少年篮球训练监测系统
               </div>
               <div className="space-y-1.5">
@@ -104,7 +104,7 @@ export function RoleTabsLayout({ tabs, activeKey, children, title, subtitle }: R
                     className={cn(
                       'group relative flex items-center gap-2 rounded-[var(--radius-sm)] border px-4 py-2.5 text-sm font-semibold transition-all duration-[var(--duration-fast)]',
                       activeKey === tab.key
-                        ? 'border-[var(--border-strong)] bg-[linear-gradient(120deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05)),linear-gradient(135deg,rgba(99,220,255,0.16),rgba(255,119,215,0.12),rgba(245,201,92,0.16))] text-[var(--accent-soft)] shadow-[0_12px_24px_rgba(0,0,0,0.14),0_0_18px_rgba(245,201,92,0.1)]'
+                        ? 'border-[var(--border-strong)] bg-[linear-gradient(120deg,rgba(255,255,255,0.18),rgba(255,255,255,0.05)),linear-gradient(135deg,rgba(99,220,255,0.16),rgba(255,119,215,0.12),rgba(245,201,92,0.16))] text-[var(--text-1)] shadow-[0_12px_24px_rgba(0,0,0,0.14),0_0_18px_rgba(245,201,92,0.1)]'
                         : isLight
                           ? 'border-transparent text-[var(--text-2)] hover:border-[var(--border-soft)] hover:bg-[rgba(126,91,24,0.05)] hover:text-[var(--text-1)]'
                           : 'border-transparent text-[var(--text-3)] hover:border-[var(--border-soft)] hover:bg-white/[0.05] hover:text-[var(--text-1)]',
@@ -189,7 +189,7 @@ export function RoleTabsLayout({ tabs, activeKey, children, title, subtitle }: R
               <span className={cn('relative h-5 w-5 transition-transform duration-[var(--duration-fast)]', activeKey === tab.key && 'scale-110')}>
                 {tab.icon}
                 {activeKey === tab.key && (
-                  <span className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-gold-400 shadow-[0_0_10px_rgba(245,201,92,0.7)]" />
+                  <span className="absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[var(--accent)] shadow-[0_0_10px_rgba(255,192,0,0.7)]" />
                 )}
               </span>
               <span>{tab.label}</span>

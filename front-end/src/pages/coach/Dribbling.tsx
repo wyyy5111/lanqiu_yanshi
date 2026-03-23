@@ -163,7 +163,7 @@ export function Dribbling() {
       </div>
 
       <div className="glass-luxury is-dribble p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow relative z-10">
-        <h2 className="mb-2 text-lg font-semibold text-white">分析指标</h2>
+        <h2 className="mb-2 text-lg font-semibold text-[var(--text-1)]">分析指标</h2>
         <p className="mb-3 text-sm opacity-80 text-[var(--text-2)]">
           本页面将分析以下运球相关指标：
         </p>
@@ -197,7 +197,7 @@ export function Dribbling() {
             <div className="space-y-4">
               <div className="glass-luxury is-dribble u-ai-card-enter p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow relative">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="flex items-center gap-2 font-medium text-white">
+                  <h3 className="flex items-center gap-2 font-medium text-[var(--text-1)]">
                     <Brain className="w-5 h-5 text-gold-500" />
                     AI智能分析结果
                   </h3>
@@ -221,7 +221,7 @@ export function Dribbling() {
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-sm font-bold text-white">{aiAnalysis.overallScore}</span>
+                      <span className="text-sm font-bold text-[var(--text-1)]">{aiAnalysis.overallScore}</span>
                     </div>
                   </div>
                 </div>
@@ -230,19 +230,19 @@ export function Dribbling() {
 
                 <div className="u-four-color-grid mb-4">
                   <div className="u-color-tag tag-strength">
-                    <h4 className="mb-1 text-sm font-medium text-white">优势表现</h4>
+                    <h4 className="mb-1 text-sm font-medium text-[var(--text-1)]">优势表现</h4>
                     <p className="text-xs opacity-80 text-[var(--text-2)]">{aiAnalysis.strengths?.[0] || '运球节奏稳定'}</p>
                   </div>
                   <div className="u-color-tag tag-improve">
-                    <h4 className="mb-1 text-sm font-medium text-white">改进要点</h4>
+                    <h4 className="mb-1 text-sm font-medium text-[var(--text-1)]">改进要点</h4>
                     <p className="text-xs opacity-80 text-[var(--text-2)]">{aiAnalysis.improvementAreas?.[0] || '重心控制'}</p>
                   </div>
                   <div className="u-color-tag tag-suggest">
-                    <h4 className="mb-1 text-sm font-medium text-white">训练建议</h4>
+                    <h4 className="mb-1 text-sm font-medium text-[var(--text-1)]">训练建议</h4>
                     <p className="text-xs opacity-80 text-[var(--text-2)]">{aiAnalysis.suggestions?.[0] || '加强基础练习'}</p>
                   </div>
                   <div className="u-color-tag tag-risk">
-                    <h4 className="mb-1 text-sm font-medium text-white">总结</h4>
+                    <h4 className="mb-1 text-sm font-medium text-[var(--text-1)]">总结</h4>
                     <p className="text-xs opacity-80 text-[var(--text-2)]">{aiAnalysis.summary}</p>
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export function Dribbling() {
 
               {/* 学员选择和发送报告 */}
               <div className="glass-luxury is-dribble p-6 rounded-2xl border-2 border-gold-500/20">
-                <h3 className="mb-4 flex items-center gap-2 font-medium text-white">
+                <h3 className="mb-4 flex items-center gap-2 font-medium text-[var(--text-1)]">
                   <Send className="w-5 h-5 text-gold-500" />
                   发送训练报告到家长端
                 </h3>
@@ -273,7 +273,7 @@ export function Dribbling() {
                   </div>
                   {selectedStudent && (
                     <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-gold-500/10 to-amber-500/10 border border-gold-500/20">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-gold-500/30">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-[var(--text-1)] text-sm font-bold shadow-lg shadow-gold-500/30">
                         {selectedStudent.name.charAt(0)}
                       </div>
                       <div>
@@ -307,7 +307,7 @@ export function Dribbling() {
           {showReport && aiAnalysis && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white">训练报告</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-1)]">训练报告</h3>
                 <Button
                   variant="outline"
                   size="sm"

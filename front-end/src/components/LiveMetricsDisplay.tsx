@@ -165,17 +165,17 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
     <div className="grid gap-5 xl:grid-cols-[1.65fr,0.95fr]">
       <Card className="u-card-glass glass-prism-panel tech-grid-surface relative overflow-hidden">
         <CardContent className="p-0 relative">
-          <div className="absolute left-4 top-4 z-20 rounded-full border border-white/10 bg-[rgba(5,8,14,0.62)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--text-2)] backdrop-blur-xl">
+          <div className="absolute left-4 top-4 z-20 rounded-full border border-[var(--border-soft)] bg-[var(--surface-1)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--text-2)] backdrop-blur-xl">
             {trainingType ? `${trainingType.toUpperCase()} ANALYSIS` : 'MOTION ANALYSIS'}
           </div>
-          <div className="absolute right-4 top-4 z-20 rounded-full border border-white/10 bg-[rgba(5,8,14,0.62)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--text-2)] backdrop-blur-xl">
+          <div className="absolute right-4 top-4 z-20 rounded-full border border-[var(--border-soft)] bg-[var(--surface-1)] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--text-2)] backdrop-blur-xl">
             Live Feed
           </div>
           <div className="pointer-events-none absolute inset-x-0 top-[18%] z-10 h-px opacity-70 blur-[1px] animate-[beamSweep_7.2s_linear_infinite]" style={{ background: 'var(--line-spectrum)' }} />
-          <div className="pointer-events-none absolute left-4 top-4 z-10 h-10 w-10 rounded-tl-[20px] border-l border-t border-white/18" />
-          <div className="pointer-events-none absolute right-4 top-4 z-10 h-10 w-10 rounded-tr-[20px] border-r border-t border-white/18" />
-          <div className="pointer-events-none absolute bottom-4 left-4 z-10 h-10 w-10 rounded-bl-[20px] border-b border-l border-white/18" />
-          <div className="pointer-events-none absolute bottom-4 right-4 z-10 h-10 w-10 rounded-br-[20px] border-b border-r border-white/18" />
+          <div className="pointer-events-none absolute left-4 top-4 z-10 h-10 w-10 rounded-tl-[20px] border-l border-t border-[var(--border-soft)]" />
+          <div className="pointer-events-none absolute right-4 top-4 z-10 h-10 w-10 rounded-tr-[20px] border-r border-t border-[var(--border-soft)]" />
+          <div className="pointer-events-none absolute bottom-4 left-4 z-10 h-10 w-10 rounded-bl-[20px] border-b border-l border-[var(--border-soft)]" />
+          <div className="pointer-events-none absolute bottom-4 right-4 z-10 h-10 w-10 rounded-br-[20px] border-b border-r border-[var(--border-soft)]" />
           <video
             ref={videoRef}
             src={videoUrl}
@@ -262,13 +262,13 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
 
       {/* 实时指标显示 */}
       <div className="space-y-4">
-        <div className="glass-prism-panel tech-grid-surface rounded-[28px] border border-white/8 p-4">
+        <div className="glass-prism-panel tech-grid-surface rounded-[28px] border border-[var(--border-soft)] p-4">
           <div className="flex items-center justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-3)]">实时分析总览</p>
               <h3 className="mt-2 text-xl font-semibold text-[var(--text-1)]">动作检测边栏</h3>
             </div>
-            <div className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-[var(--text-2)]">
+            <div className="rounded-full border border-[var(--border-soft)] bg-[var(--surface-1)] px-3 py-1.5 text-xs font-medium text-[var(--text-2)]">
               达标率 <span className="font-semibold text-[var(--accent-soft)]">{complianceRate}%</span>
             </div>
           </div>
@@ -278,7 +278,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
               { label: '达标指标', value: String(standardMetricCount).padStart(2, '0'), detail: '当前状态' },
               { label: '异常提示', value: String(Math.max(activeMetricCount - standardMetricCount, 0)).padStart(2, '0'), detail: '待校正' },
             ].map((item) => (
-              <div key={item.label} className="glass-prism-panel rounded-[22px] border border-white/8 bg-white/[0.04] px-4 py-4">
+              <div key={item.label} className="glass-prism-panel rounded-[22px] border border-[var(--border-soft)] bg-[var(--surface-1)] px-4 py-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-[var(--text-3)]">{item.label}</p>
                 <p className="mt-3 text-[1.55rem] font-bold leading-none text-[var(--text-1)] [font-family:var(--font-data)]">{item.value}</p>
                 <p className="mt-2 text-xs text-[var(--text-3)]">{item.detail}</p>
@@ -289,7 +289,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
 
         <Card className="glass-prism-panel overflow-hidden">
           <CardHeader>
-            <CardTitle className="text-lg text-white">实时指标数据</CardTitle>
+            <CardTitle className="text-lg text-[var(--text-1)]">实时指标数据</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {metricEntries.length === 0 ? (
@@ -312,12 +312,12 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                     className={cn(
                       'glass-prism-panel rounded-[20px] border p-3 transition-colors',
                       isStandard
-                        ? 'border-white/8 bg-white/[0.04]'
+                        ? 'border-[var(--border-soft)] bg-[var(--surface-1)]'
                         : 'border-[rgba(239,100,97,0.24)] bg-[rgba(239,100,97,0.1)]',
                     )}
                   >
                     <div className="flex-1">
-                      <span className="text-sm font-medium text-white">
+                      <span className="text-sm font-medium text-[var(--text-1)]">
                         {label}
                       </span>
                       {range && (
@@ -345,7 +345,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                         </div>
                       )}
                       {total > 0 && (
-                        <div className="mt-2 h-1.5 rounded-full bg-white/8">
+                        <div className="mt-2 h-1.5 rounded-full bg-[var(--surface-1)]">
                           <div
                             className={cn(
                               'h-full rounded-full',
@@ -369,7 +369,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
         {Object.keys(nonStandardCounts).length > 0 && (
           <Card className="glass-prism-panel overflow-hidden">
             <CardHeader>
-              <CardTitle className="text-lg text-white">动作标准性统计</CardTitle>
+              <CardTitle className="text-lg text-[var(--text-1)]">动作标准性统计</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {Object.entries(nonStandardCounts).map(([key, failureCount]) => {
@@ -386,11 +386,11 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                     className={cn(
                       'glass-prism-panel flex items-center justify-between rounded-[18px] border p-2',
                       isStandard
-                        ? 'border-white/8 bg-white/[0.04]'
+                        ? 'border-[var(--border-soft)] bg-[var(--surface-1)]'
                         : 'border-[rgba(239,100,97,0.24)] bg-[rgba(239,100,97,0.1)]',
                     )}
                   >
-                    <span className="text-sm font-medium text-white">
+                    <span className="text-sm font-medium text-[var(--text-1)]">
                       {label}
                     </span>
                     <div className="text-right">
@@ -405,7 +405,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                   </div>
                 );
               })}
-              <div className="mt-3 border-t border-white/8 pt-3">
+              <div className="mt-3 border-t border-[var(--border-soft)] pt-3">
                 <div className="text-xs text-[var(--text-3)]">
                   统计基于2秒时间窗口检测
                 </div>
@@ -419,10 +419,10 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
             <div className="flex items-center justify-center">
               {isPlaying ? (
                 <div className="text-center">
-                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full border border-white/10 bg-[linear-gradient(135deg,rgba(99,220,255,0.14),rgba(255,119,215,0.12),rgba(245,201,92,0.14))]">
+                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full border border-[var(--border-soft)] bg-[linear-gradient(135deg,rgba(99,220,255,0.14),rgba(255,119,215,0.12),rgba(245,201,92,0.14))]">
                     <div className="h-8 w-8 rounded-full bg-[linear-gradient(135deg,#63dcff,#f5c95c,#ff77d7)] animate-pulse" />
                   </div>
-                  <p className="text-sm font-medium text-white">正在分析中...</p>
+                  <p className="text-sm font-medium text-[var(--text-1)]">正在分析中...</p>
                 </div>
               ) : (
                 <div className="text-center">

@@ -159,7 +159,7 @@ export function Shooting() {
       </div>
 
       <div className="glass-luxury is-shoot p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow relative z-10">
-        <h2 className="mb-2 text-lg font-semibold text-white">分析指标</h2>
+        <h2 className="mb-2 text-lg font-semibold text-[var(--text-1)]">分析指标</h2>
         <p className="mb-3 text-sm opacity-80 text-[var(--text-2)]">
           本页面将分析以下投篮相关指标：
         </p>
@@ -228,7 +228,7 @@ export function Shooting() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-lg font-bold text-white">{aiAnalysis.overallScore}</span>
+                        <span className="text-lg font-bold text-[var(--text-1)]">{aiAnalysis.overallScore}</span>
                       </div>
                     </div>
                     {/* 进度环金色光晕 */}
@@ -303,7 +303,7 @@ export function Shooting() {
 
               {/* 学员选择和发送报告 */}
               <div className="glass-luxury is-shoot p-6 rounded-2xl border-2 border-gold-500/20">
-                <h3 className="mb-4 flex items-center gap-2 font-medium text-white">
+                <h3 className="mb-4 flex items-center gap-2 font-medium text-[var(--text-1)]">
                   <Send className="w-5 h-5 text-gold-500" />
                   发送训练报告到家长端
                 </h3>
@@ -318,7 +318,7 @@ export function Shooting() {
                   </div>
                   {selectedStudent && (
                     <div className="flex items-center gap-3 p-3 rounded-lg bg-gradient-to-r from-gold-500/10 to-amber-500/10 border border-gold-500/20">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-white text-sm font-bold shadow-lg shadow-gold-500/30">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-[var(--text-1)] text-sm font-bold shadow-lg shadow-gold-500/30">
                         {selectedStudent.name.charAt(0)}
                       </div>
                       <div>
@@ -352,7 +352,7 @@ export function Shooting() {
           {showReport && aiAnalysis && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white">训练报告</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-1)]">训练报告</h3>
                 <Button
                   variant="outline"
                   size="sm"

@@ -19,7 +19,7 @@ const TabsTrigger = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Trigg
   ({ className, ...props }, ref) => (
     <TabsPrimitive.Trigger
       ref={ref}
-      className={cn('inline-flex min-w-[5rem] items-center justify-center whitespace-nowrap rounded-[var(--radius-sm)] border border-transparent px-4 py-2.5 text-sm font-semibold transition-all duration-[var(--duration-fast)] data-[state=active]:border-[var(--border-strong)] data-[state=active]:bg-[linear-gradient(125deg,rgba(255,255,255,0.2),rgba(255,255,255,0.06)),linear-gradient(135deg,rgba(99,220,255,0.14),rgba(255,119,215,0.12),rgba(245,201,92,0.14))] data-[state=active]:text-[var(--accent-soft)] data-[state=active]:shadow-[0_10px_24px_rgba(0,0,0,0.18),0_0_18px_rgba(245,201,92,0.1)] data-[state=active]:ring-1 data-[state=active]:ring-[var(--border-strong)] hover:text-[var(--text-1)] hover:data-[state=active]:text-[var(--text-1)]', className)}
+      className={cn('inline-flex min-w-[5rem] items-center justify-center whitespace-nowrap rounded-[var(--radius-sm)] border border-transparent px-4 py-2.5 text-sm font-semibold transition-all duration-[var(--duration-fast)] text-[var(--text-3)] hover:text-[var(--text-1)] data-[state=active]:border-[var(--border-strong)] data-[state=active]:bg-[linear-gradient(125deg,rgba(255,255,255,0.2),rgba(255,255,255,0.06)),linear-gradient(135deg,rgba(99,220,255,0.14),rgba(255,119,215,0.12),rgba(245,201,92,0.14))] data-[state=active]:text-[var(--text-1)] data-[state=active]:shadow-[0_10px_24px_rgba(0,0,0,0.18),0_0_18px_rgba(245,201,92,0.1)] data-[state=active]:ring-1 data-[state=active]:ring-[var(--border-strong)]', className)}
       {...props}
     />
   ),

@@ -58,7 +58,7 @@ export function TrainingSelection() {
 
               <CardHeader className="relative z-10">
                 {/* 图标容器 - 金色效果 */}
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-500 via-gold-600 to-gold-700 flex items-center justify-center mb-5 text-white shadow-lg shadow-gold-500/50 group-hover:shadow-gold-400 transition-all duration-300 animate-glow-pulse">
+                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-gold-500 via-gold-600 to-gold-700 flex items-center justify-center mb-5 text-[var(--text-1)] shadow-lg shadow-gold-500/50 group-hover:shadow-gold-400 transition-all duration-300 animate-glow-pulse">
                   <Icon className="w-10 h-10" />
                 </div>
                 <CardTitle className="text-2xl font-bold gradient-text-gold mb-2">{type.title}</CardTitle>
@@ -68,7 +68,7 @@ export function TrainingSelection() {
               </CardHeader>
               <CardContent className="relative z-10">
                 <Button
-                  className="w-full h-12 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-white font-semibold shadow-lg hover:shadow-gold-500 transition-all duration-300 hover:scale-105"
+                  className="w-full h-12 rounded-xl bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 text-[var(--text-1)] font-semibold shadow-lg hover:shadow-gold-500 transition-all duration-300 hover:scale-105"
                   variant="outline"
                 >
                   <span className="flex items-center gap-2">
@@ -108,7 +108,7 @@ export function TrainingSelection() {
             '播放视频时，相关指标将实时显示在右侧面板'
           ].map((text, index) => (
             <div key={index} className="flex items-start gap-4 animate-slide-up" style={{ animationDelay: `${(index + 3) * 100}ms` }}>
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 text-white flex items-center justify-center flex-shrink-0 font-bold shadow-lg shadow-gold-500/30">
+              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 text-[var(--text-1)] flex items-center justify-center flex-shrink-0 font-bold shadow-lg shadow-gold-500/30">
                 {index + 1}
               </div>
               <p className="pt-0.5 leading-7 text-[var(--text-2)]">{text}</p>

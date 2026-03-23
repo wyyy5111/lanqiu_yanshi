@@ -157,7 +157,7 @@ export function Defense() {
       </div>
 
       <div className="glass-luxury is-defense p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow relative z-10">
-        <h2 className="mb-2 text-lg font-semibold text-white">分析指标</h2>
+        <h2 className="mb-2 text-lg font-semibold text-[var(--text-1)]">分析指标</h2>
         <p className="mb-3 text-sm opacity-80 text-[var(--text-2)]">
           本页面将分析以下防守相关指标：
         </p>
@@ -226,7 +226,7 @@ export function Defense() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-lg font-bold text-white">{aiAnalysis.overallScore}</span>
+                        <span className="text-lg font-bold text-[var(--text-1)]">{aiAnalysis.overallScore}</span>
                       </div>
                     </div>
                     {/* 进度环金色光晕 */}
@@ -301,7 +301,7 @@ export function Defense() {
 
               {/* 学员选择和发送报告 */}
               <div className="glass-luxury is-defense p-4 rounded-xl border-2 border-gold-500/20">
-                <h3 className="mb-3 font-medium text-white">发送训练报告到家长端</h3>
+                <h3 className="mb-3 font-medium text-[var(--text-1)]">发送训练报告到家长端</h3>
                 <div className="space-y-3">
                   <div className="relative">
                     <StudentSelector
@@ -313,10 +313,10 @@ export function Defense() {
                     {/* 选中学员的视觉显示 */}
                     {selectedStudent && (
                       <div className="mt-2 flex items-center gap-2 p-2 bg-gradient-to-r from-gold-500/10 to-amber-500/10 rounded-lg border border-gold-500/20">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-gold-500/30">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-[var(--text-1)] text-xs font-bold shadow-lg shadow-gold-500/30">
                           {selectedStudent.name.charAt(0)}
                         </div>
-                        <span className="text-sm font-medium text-white">{selectedStudent.name}</span>
+                        <span className="text-sm font-medium text-[var(--text-1)]">{selectedStudent.name}</span>
                         <span className="text-xs text-gold-600 dark:text-gold-400 bg-gold-500/10 px-2 py-1 rounded">
                           已选择学员
                         </span>
@@ -349,7 +349,7 @@ export function Defense() {
           {showReport && aiAnalysis && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-white">训练报告</h3>
+                <h3 className="text-lg font-semibold text-[var(--text-1)]">训练报告</h3>
                 <Button
                   variant="outline"
                   size="sm"
