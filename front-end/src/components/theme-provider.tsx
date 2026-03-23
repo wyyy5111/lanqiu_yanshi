@@ -6,16 +6,13 @@ type Theme = 'light' | 'dark';
 const ThemeContext = React.createContext<{
   theme: Theme;
   setTheme: (theme: Theme) => void;
-}>({ theme: 'light', setTheme: () => undefined });
+}>({ theme: 'dark', setTheme: () => undefined });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = React.useState<Theme>(() => {
     const stored = typeof window !== 'undefined' ? window.localStorage.getItem('theme') : null;
     if (stored === 'light' || stored === 'dark') return stored;
-    if (typeof window !== 'undefined') {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-    return 'light';
+    return 'dark';
   });
 
   React.useEffect(() => {

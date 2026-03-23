@@ -112,9 +112,9 @@ function CoachTeamTab() {
         />
       ) : null}
 
-      <Card className="u-card-glass">
+      <Card className="glass-luxury border-gold-500/20">
         <CardHeader>
-          <CardTitle className="text-base">队员档案管理</CardTitle>
+          <CardTitle className="text-base text-white">队员档案管理</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-4 md:grid-cols-3">
@@ -132,9 +132,9 @@ function CoachTeamTab() {
               </Button>
             </div>
           </div>
-          <ScrollArea className="h-56 rounded-3xl border border-slate-200/70 p-4 dark:border-slate-800">
+          <ScrollArea className="h-56 rounded-3xl border border-white/8 bg-white/[0.04] p-4">
             <table className="w-full text-sm">
-              <thead className="text-left text-slate-500 dark:text-slate-300">
+              <thead className="text-left text-[var(--text-3)]">
                 <tr>
                   <th className="py-2">队员</th>
                   <th>专项</th>
@@ -142,9 +142,9 @@ function CoachTeamTab() {
                   <th>风险等级</th>
                 </tr>
               </thead>
-              <tbody className="text-slate-700 dark:text-slate-200">
+              <tbody className="text-[var(--text-2)]">
                 {members.map((member) => (
-                  <tr key={member.id} className="border-t border-slate-100/80 dark:border-slate-800/80">
+                  <tr key={member.id} className="border-t border-white/6">
                     <td className="py-2">{member.name}</td>
                     <td>{member.specialization}</td>
                     <td>{member.progress.toFixed(1)}%</td>
@@ -174,7 +174,7 @@ function CoachTeamTab() {
         ]}
       />
 
-      <div className="flex justify-end p-5 rounded-2xl glass-card border-2 border-neon-purple/20">
+      <div className="flex justify-end p-5 rounded-2xl glass-luxury border-2 border-gold-500/30">
         <ReportBuilder targetId="coach-team-report" fileName="球队档案报告.pdf" title="球队动作规范度对比报告" />
       </div>
     </div>
@@ -207,45 +207,45 @@ function CoachPlanTab() {
 
   return (
     <div className="space-y-6" id="coach-plan-report">
-      <Card className="u-card-glass">
+      <Card className="glass-luxury border-gold-500/20">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base">训练日程安排</CardTitle>
+          <CardTitle className="text-base text-white">训练日程安排</CardTitle>
           <Button variant="outline" size="sm" onClick={handleAddPlan}>
             添加计划
           </Button>
         </CardHeader>
         <CardContent className="space-y-3">
           {schedule.map((item) => (
-            <div key={item.id} className="rounded-2xl bg-slate-100/80 px-4 py-3 text-sm text-slate-600 dark:bg-slate-900/70 dark:text-slate-300">
-              <p className="font-semibold text-slate-800 dark:text-slate-100">{item.date}</p>
-              <p className="mt-1 text-xs">{item.content}</p>
+            <div key={item.id} className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3 text-sm text-[var(--text-2)]">
+              <p className="font-semibold text-white">{item.date}</p>
+              <p className="mt-1 text-xs text-[var(--text-3)]">{item.content}</p>
             </div>
           ))}
         </CardContent>
       </Card>
 
-      <Card className="border-none bg-slate-100/80 dark:bg-slate-900/80">
+      <Card className="glass-luxury border-gold-500/20">
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-base">训练提醒与消息</CardTitle>
+          <CardTitle className="text-base text-white">训练提醒与消息</CardTitle>
           <Switch checked={enableReminder} onCheckedChange={setEnableReminder} aria-label="开启训练提醒" />
         </CardHeader>
-        <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-          <div className="u-card-glass p-4">
-            <p className="text-xs text-slate-500">推送内容</p>
+        <CardContent className="space-y-3 text-sm text-[var(--text-2)]">
+          <div className="glass-luxury p-4 border border-gold-500/20 rounded-xl">
+            <p className="text-xs text-[var(--text-3)]">推送内容</p>
             <Textarea value={message} onChange={(event) => setMessage(event.target.value)} rows={3} />
             <Button variant="ghost" size="sm" className="mt-2 self-end">
               <Megaphone className="mr-2 h-4 w-4" /> 发送到队员端
             </Button>
           </div>
-          <div className="u-card-glass p-4">
-            <p className="text-xs text-slate-500">最新反馈</p>
+          <div className="glass-luxury p-4 border border-gold-500/20 rounded-xl">
+            <p className="text-xs text-[var(--text-3)]">最新反馈</p>
             <ul className="mt-2 space-y-1">
               {latestFeedback.length > 0 ? (
                 latestFeedback.map((feedback, index) => (
                   <li key={index} className="text-sm">{feedback}</li>
                 ))
               ) : (
-                <li className="text-sm text-slate-400">暂无反馈数据</li>
+                <li className="text-sm text-[var(--text-3)]">暂无反馈数据</li>
               )}
             </ul>
           </div>
@@ -279,7 +279,7 @@ function CoachPlanTab() {
         ]}
       />
 
-      <div className="flex justify-end p-5 rounded-2xl glass-card border-2 border-neon-cyan/20">
+      <div className="flex justify-end p-5 rounded-2xl glass-luxury border-2 border-gold-500/20">
         <ReportBuilder targetId="coach-plan-report" fileName="训练计划与提醒.pdf" title="训练计划与提醒执行报告" />
       </div>
     </div>

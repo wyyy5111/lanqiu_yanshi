@@ -115,10 +115,10 @@ export function VideoUpload({ onUploadComplete, trainingType }: VideoUploadProps
   };
 
   return (
-    <Card>
+    <Card className="u-card-glass">
       <CardContent className="pt-6">
         <div
-          className="border-2 border-dashed border-slate-300 rounded-lg p-8 text-center cursor-pointer hover:border-brand transition-colors"
+          className="group rounded-[28px] border border-dashed border-white/12 bg-white/[0.03] p-8 text-center transition-all duration-300 hover:border-gold-400/28 hover:bg-white/[0.05]"
           onClick={() => fileInputRef.current?.click()}
           onDragOver={handleDragOver}
           onDrop={handleDrop}
@@ -135,20 +135,24 @@ export function VideoUpload({ onUploadComplete, trainingType }: VideoUploadProps
           <div className="flex flex-col items-center gap-4">
             {!file && (
               <>
-                <Upload className="w-12 h-12 text-slate-400" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-[22px] border border-gold-400/14 bg-gold-400/8 text-[var(--accent-soft)] shadow-[0_0_30px_rgba(245,201,92,0.1)]">
+                  <Upload className="h-8 w-8" />
+                </div>
                 <div>
-                  <p className="text-lg font-medium text-slate-700">点击或拖拽上传视频</p>
-                  <p className="text-sm text-slate-500 mt-1">支持 MP4, AVI, MOV, MKV 格式，最大 500MB</p>
+                  <p className="text-lg font-medium text-white">点击或拖拽上传视频</p>
+                  <p className="mt-1 text-sm text-[var(--text-3)]">支持 MP4, AVI, MOV, MKV 格式，最大 500MB</p>
                 </div>
               </>
             )}
             
             {file && !uploading && (
               <>
-                <CheckCircle className="w-12 h-12 text-green-500" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-[22px] border border-gold-400/14 bg-gold-400/8 text-[var(--accent-soft)]">
+                  <CheckCircle className="h-8 w-8" />
+                </div>
                 <div>
-                  <p className="text-lg font-medium text-slate-700">{file.name}</p>
-                  <p className="text-sm text-slate-500 mt-1">
+                  <p className="text-lg font-medium text-white">{file.name}</p>
+                  <p className="mt-1 text-sm text-[var(--text-3)]">
                     {(file.size / (1024 * 1024)).toFixed(2)} MB
                   </p>
                 </div>
@@ -157,11 +161,13 @@ export function VideoUpload({ onUploadComplete, trainingType }: VideoUploadProps
             
             {uploading && (
               <>
-                <Loader2 className="w-12 h-12 text-brand animate-spin" />
+                <div className="flex h-16 w-16 items-center justify-center rounded-[22px] border border-gold-400/14 bg-gold-400/8 text-[var(--accent-soft)]">
+                  <Loader2 className="h-8 w-8 animate-spin" />
+                </div>
                 <div className="w-full max-w-md">
-                  <p className="text-lg font-medium text-slate-700 mb-2">处理中...</p>
+                  <p className="mb-2 text-lg font-medium text-white">处理中...</p>
                   <Progress value={progress} className="h-2" />
-                  <p className="text-sm text-slate-500 mt-2">{progress}%</p>
+                  <p className="mt-2 text-sm text-[var(--text-3)]">{progress}%</p>
                 </div>
               </>
             )}
@@ -169,9 +175,9 @@ export function VideoUpload({ onUploadComplete, trainingType }: VideoUploadProps
         </div>
 
         {error && (
-          <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg flex items-center gap-2">
-            <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-            <p className="text-sm text-red-700">{error}</p>
+          <div className="mt-4 flex items-center gap-2 rounded-[20px] border border-[rgba(239,100,97,0.22)] bg-[rgba(239,100,97,0.1)] p-3">
+            <AlertCircle className="h-5 w-5 flex-shrink-0 text-[#ffb2af]" />
+            <p className="text-sm text-[#ffb2af]">{error}</p>
           </div>
         )}
 
@@ -179,7 +185,7 @@ export function VideoUpload({ onUploadComplete, trainingType }: VideoUploadProps
           <div className="mt-4 flex gap-3">
             <Button
               onClick={handleUpload}
-              className="flex-1"
+              className="btn-neon flex-1"
               disabled={uploading}
             >
               开始分析

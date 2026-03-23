@@ -8,15 +8,15 @@ type ToastVariant = 'default' | 'destructive' | 'success' | 'warning' | 'info';
 
 const toastVariantStyles: Record<ToastVariant, string> = {
   default:
-    'border-slate-200 bg-white text-slate-900 shadow-lg dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100',
+    'border-white/10 bg-[rgba(10,10,14,0.92)] text-[var(--text-1)] shadow-[0_24px_60px_rgba(0,0,0,0.4)]',
   destructive:
-    'border-red-500/40 bg-red-950/80 text-red-100 shadow-[0_10px_30px_rgba(248,113,113,0.4)] dark:border-red-400/30',
+    'border-[rgba(239,100,97,0.28)] bg-[rgba(40,12,14,0.94)] text-[#ffb2af] shadow-[0_18px_42px_rgba(0,0,0,0.35)]',
   success:
-    'border-emerald-400/40 bg-emerald-950/80 text-emerald-100 shadow-[0_10px_30px_rgba(16,185,129,0.35)] dark:border-emerald-300/30',
+    'border-gold-400/22 bg-[rgba(25,20,10,0.94)] text-[var(--accent-soft)] shadow-[0_18px_42px_rgba(0,0,0,0.35)]',
   warning:
-    'border-amber-400/40 bg-amber-950/80 text-amber-100 shadow-[0_10px_30px_rgba(251,191,36,0.35)] dark:border-amber-300/30',
+    'border-[rgba(242,141,69,0.26)] bg-[rgba(44,25,8,0.94)] text-[#ffcf7d] shadow-[0_18px_42px_rgba(0,0,0,0.35)]',
   info:
-    'border-sky-400/40 bg-sky-950/80 text-sky-100 shadow-[0_10px_30px_rgba(56,189,248,0.35)] dark:border-sky-300/30',
+    'border-white/10 bg-[rgba(10,10,14,0.92)] text-[var(--text-1)] shadow-[0_18px_42px_rgba(0,0,0,0.35)]',
 };
 
 const ToastProvider = ToastPrimitives.Provider;
@@ -43,7 +43,7 @@ const Toast = React.forwardRef<
     <ToastPrimitives.Root
       ref={ref}
       className={cn(
-        'group pointer-events-auto relative flex w-full items-center justify-between gap-3 overflow-hidden rounded-2xl border p-4 pr-6 transition-all hover:border-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand u-surface-light dark:u-surface-dark',
+        'group pointer-events-auto relative flex w-full items-center justify-between gap-3 overflow-hidden rounded-[24px] border p-4 pr-6 transition-all u-surface-light dark:u-surface-dark',
         toastVariantStyles[variant],
         className,
       )}
@@ -63,7 +63,7 @@ ToastTitle.displayName = ToastPrimitives.Title.displayName;
 
 const ToastDescription = React.forwardRef<React.ElementRef<typeof ToastPrimitives.Description>, React.ComponentPropsWithoutRef<typeof ToastPrimitives.Description>>(
   ({ className, ...props }, ref) => (
-    <ToastPrimitives.Description ref={ref} className={cn('text-sm text-slate-500 dark:text-slate-400', className)} {...props} />
+    <ToastPrimitives.Description ref={ref} className={cn('text-sm text-[var(--text-3)]', className)} {...props} />
   ),
 );
 ToastDescription.displayName = ToastPrimitives.Description.displayName;

@@ -23,33 +23,59 @@ export function ProfileCard({ profile, extra }: { profile: StudentProfile; extra
   };
 
   return (
-    <Card className="u-card-glass">
-      <CardHeader className="flex flex-row items-center gap-4">
+    <Card className="u-card-glass overflow-hidden">
+      <CardHeader className="flex flex-col gap-6 md:flex-row md:items-center">
         {profile.avatar ? (
           <img
             src={profile.avatar}
             alt={profile.name}
-            className="avatar-anim h-16 w-16 rounded-2xl object-cover shadow"
+            className="avatar-anim h-20 w-20 rounded-[24px] object-cover"
           />
         ) : (
-          <div className="avatar-anim flex h-16 w-16 items-center justify-center rounded-2xl bg-brand/20 text-xl font-semibold text-brand">
+          <div className="avatar-anim flex h-20 w-20 items-center justify-center rounded-[24px] bg-gold-400/12 text-2xl font-semibold text-[var(--accent-soft)]">
             {profile.name?.at(0)}
           </div>
         )}
-        <div className="flex-1">
-          <CardTitle className="text-lg">{profile.name}</CardTitle>
-          <p className="text-xs text-slate-500 dark:text-slate-300">
+        <div className="flex-1 space-y-3">
+          <div className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--text-3)]">
+              {profile.role === 'coach' ? '教练档案' : '学生档案'}
+            </p>
+            <CardTitle className="text-2xl md:text-3xl">{profile.name}</CardTitle>
+          </div>
+          <p className="text-sm text-[var(--text-2)]">
             {profile.role === 'parent' ? '学生档案' : '篮球教练'} · {profile.className ?? profile.teamName ?? '教研组'}
           </p>
-          <p className="mt-1 text-xs text-slate-400">
-            年龄 {profile.age} · 身高 {profile.height}cm · 体重 {profile.weight}kg
-          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-3">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--text-3)]">年龄</p>
+              <p className="mt-2 text-xl font-semibold text-white [font-family:var(--font-data)]">{profile.age}</p>
+            </div>
+            <div className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-3">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--text-3)]">身高</p>
+              <p className="mt-2 text-xl font-semibold text-white [font-family:var(--font-data)]">{profile.height}cm</p>
+            </div>
+            <div className="rounded-[20px] border border-white/8 bg-white/[0.04] px-4 py-3">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--text-3)]">体重</p>
+              <p className="mt-2 text-xl font-semibold text-white [font-family:var(--font-data)]">{profile.weight}kg</p>
+            </div>
+          </div>
         </div>
-        {extra ? <div className="text-right text-xs text-slate-500">{extra}</div> : null}
+        {extra ? (
+          <div className="max-w-xs rounded-[22px] border border-gold-400/14 bg-gold-400/8 px-4 py-3 text-sm leading-6 text-[var(--text-2)]">
+            {extra}
+          </div>
+        ) : null}
       </CardHeader>
-      <CardContent className="text-sm text-slate-600 dark:text-slate-300">
-        <p>{profile.role === 'coach' ? '训练特长' : '运动特长'}：{copy.specialty}</p>
-        <p className="mt-1">矫正目标：{copy.goal}</p>
+      <CardContent className="grid gap-4 border-t border-white/6 pt-6 text-sm leading-7 text-[var(--text-2)] md:grid-cols-2">
+        <div className="rounded-[22px] border border-white/8 bg-white/[0.03] p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-3)]">特长概览</p>
+          <p className="mt-3 text-sm">{profile.role === 'coach' ? '训练特长' : '运动特长'}：{copy.specialty}</p>
+        </div>
+        <div className="rounded-[22px] border border-white/8 bg-white/[0.03] p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--text-3)]">矫正目标</p>
+          <p className="mt-3 text-sm">矫正目标：{copy.goal}</p>
+        </div>
       </CardContent>
     </Card>
   );

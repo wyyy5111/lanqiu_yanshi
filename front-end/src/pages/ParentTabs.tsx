@@ -7,7 +7,6 @@ import { ProfileCard } from '@/components/ProfileCard';
 import { ReportBuilder } from '@/components/ReportBuilder';
 import { ReportCallout } from '@/components/ReportCallout';
 import { RoleTabsLayout } from '@/components/RoleTabsLayout';
-import { StatisticCard } from '@/components/StatisticCard';
 import { TrendCharts } from '@/components/TrendCharts';
 import { VideoPlayerWithOverlay } from '@/components/VideoPlayerWithOverlay';
 import { useAsyncData } from '@/hooks/useAsyncData';
@@ -67,85 +66,85 @@ function ParentBasketballTab() {
         <div className="relative overflow-hidden rounded-3xl shadow-2xl">
           <VideoPlayerWithOverlay
             keypoints={[]}
-            className="bg-slate-900 rounded-3xl"
+            className="rounded-3xl"
             videoUrl={forcedVideoUrl}
             videoRef={videoRef}
             sourceSize={sourceSize}
-            overlayFooter={<span className="text-xs text-slate-200">{overlayStatus}</span>}
+            overlayFooter={<span className="text-xs text-[var(--text-2)]">{overlayStatus}</span>}
           />
-          {/* 视频装饰边框 */}
-          <div className="absolute inset-0 rounded-3xl border-2 border-neon-cyan/30 pointer-events-none" />
+          {/* 视频装饰边框 - 奢华金色 */}
+          <div className="absolute inset-0 rounded-3xl border-2 border-gold-500/30 pointer-events-none" />
         </div>
 
         <div className="flowline-stage space-y-4" data-keep ref={flowRef}>
-          {/* 命中率卡片 - 霓虹效果 */}
-          <div className="glass-card p-5 relative overflow-hidden group animate-slide-up">
-            <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-neon-cyan/20 to-transparent rounded-bl-full" />
+          {/* 命中率卡片 - 奢华金色效果 */}
+          <div className="glass-luxury p-5 relative overflow-hidden group animate-slide-up">
+            <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-gold-500/20 to-transparent rounded-bl-full" />
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-slate-600 dark:text-slate-400">本周命中率</span>
-                <Activity className="h-5 w-5 text-neon-cyan" />
+                <span className="text-sm font-medium text-[var(--text-2)]">本周命中率</span>
+                <Activity className="h-5 w-5 text-gold-500" />
               </div>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-4xl font-bold gradient-text">
+                <span className="text-4xl font-bold text-gold-500">
                   {focus ? focus.points[focus.points.length - 1].shootingAccuracy.toFixed(1) : '75'}
                 </span>
-                <span className="text-lg text-slate-500 dark:text-slate-400">%</span>
+                <span className="text-lg text-[var(--text-3)]">%</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-600 dark:text-green-400">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--accent-soft)]">
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                   +5.6%
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">较上周提升</span>
+                <span className="text-xs text-[var(--text-3)]">较上周提升</span>
               </div>
             </div>
-            {/* 装饰线条 */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-purple to-neon-pink opacity-50 group-hover:opacity-100 transition-opacity" />
+            {/* 装饰线条 - 金色渐变 */}
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-500 opacity-60 group-hover:opacity-100 transition-opacity" />
           </div>
 
           {/* 运球稳定指数卡片 */}
-          <div className="glass-card p-5 relative overflow-hidden group animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-neon-purple/20 to-transparent rounded-bl-full" />
+          <div className="glass-luxury p-5 relative overflow-hidden group animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <div className="absolute top-0 right-0 h-20 w-20 bg-gradient-to-br from-gold-600/20 to-transparent rounded-bl-full" />
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-slate-600 dark:text-slate-400">运球稳定指数</span>
-                <Brain className="h-5 w-5 text-neon-purple" />
+                <span className="text-sm font-medium text-[var(--text-2)]">运球稳定指数</span>
+                <Brain className="h-5 w-5 text-gold-600" />
               </div>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-4xl font-bold gradient-text">
+                <span className="text-4xl font-bold text-gold-600">
                   {focus ? (focus.points.reduce((acc, item) => acc + item.dribbleFrequency, 0) / focus.points.length).toFixed(2) : '2.2'}
                 </span>
-                <span className="text-lg text-slate-500 dark:text-slate-400">次/秒</span>
+                <span className="text-lg text-[var(--text-3)]">次/秒</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="inline-flex items-center gap-1 text-xs font-semibold text-green-600 dark:text-green-400">
+                <span className="inline-flex items-center gap-1 text-xs font-semibold text-[var(--accent-soft)]">
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                   +3.1%
                 </span>
-                <span className="text-xs text-slate-500 dark:text-slate-400">核心控制更稳</span>
+                <span className="text-xs text-[var(--text-3)]">核心控制更稳</span>
               </div>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-purple via-neon-pink to-neon-cyan opacity-50 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-gold-500 via-gold-400 to-gold-600 opacity-60 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          {/* 防摔倒预警卡片 - 增强警示效果 */}
-          <Card className="glass-card border-2 border-orange-500/30 animate-slide-up neon-border-cyan" style={{ animationDelay: '0.2s' }}>
+          {/* 防摔倒预警卡片 - 奢华金色警示 */}
+          <Card className="glass-luxury border-2 border-gold-600/30 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <CardHeader className="pb-3">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-lg shadow-orange-500/50 animate-glow-pulse">
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center shadow-lg shadow-gold-500/30">
                   <ShieldAlert className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-base font-bold gradient-text">防摔倒预警</CardTitle>
+                <CardTitle className="text-base font-bold text-gold-500">防摔倒预警</CardTitle>
               </div>
             </CardHeader>
             <CardContent className="pt-0">
-              <p className="text-sm leading-6 text-slate-600 dark:text-slate-300">
-                当监测到重心高度突降或躯干倾角超阈值时，训练界面会<span className="font-semibold text-orange-600 dark:text-orange-400">闪烁并播放提醒音</span>，协助及时纠正落地动作。
+              <p className="text-sm leading-6 text-[var(--text-2)]">
+                当监测到重心高度突降或躯干倾角超阈值时，训练界面会<span className="font-semibold text-gold-400">闪烁并播放提醒音</span>，协助及时纠正落地动作。
               </p>
             </CardContent>
           </Card>
@@ -200,7 +199,7 @@ function ParentBasketballTab() {
 
       <div className="mt-12">
         <ReportCallout
-          accent="orange"
+          accent="gold"
           icon={<Flame className="h-6 w-6" />}
           title="个性化建议"
           description="加入 3 组原地高抬腿配合随球跳投，注意落地缓冲"
@@ -226,40 +225,93 @@ function ParentProfileTab() {
     '晚间进行 10 分钟核心激活（平板支撑、桥式），稳定骨盆与腰椎。',
   ];
 
+  const metricSnapshots = [
+    { label: '体态异常', value: '9', unit: '次/月', trend: '下降 21.4%' },
+    { label: '累计时长', value: formatMinutes(186), unit: '', trend: '持续训练' },
+    { label: '命中率', value: '78', unit: '%', trend: '提升 7.8%' },
+    { label: '运球稳定性', value: '92', unit: '分', trend: '提升 6.2%' },
+  ];
+
   return (
-    <div className="space-y-6" id="parent-profile-report">
+    <div className="space-y-8" id="parent-profile-report">
       {profileQuery.data ? <ProfileCard profile={profileQuery.data} /> : null}
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <Card className="u-card-glass">
-          <CardHeader>
-            <CardTitle className="text-base">关键指标纵览</CardTitle>
-          </CardHeader>
-          <CardContent className="grid gap-3 sm:grid-cols-2">
-            <StatisticCard label="体态异常" value={9} unit="次/月" trend={{ direction: 'down', value: 21.4 }} />
-            <StatisticCard label="累计时长" value={formatMinutes(186)} trend={{ direction: 'down', value: 18.6 }} />
-            <StatisticCard label="命中率" value={78} unit="%" trend={{ direction: 'up', value: 7.8 }} />
-            <StatisticCard label="运球稳定性" value={92} unit="分" trend={{ direction: 'up', value: 6.2 }} />
-          </CardContent>
-        </Card>
-        <Card className="border-none bg-slate-100/80 dark:bg-slate-900/80">
-          <CardHeader>
-            <CardTitle className="text-base">7/30 天个性化建议</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-300">
-            {suggestions.map((item, index) => (
-              <div key={item} className="flex items-start gap-2">
-                <span className="mt-1 inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand/10 text-xs font-semibold text-brand">{index + 1}</span>
-                <p>{item}</p>
+      <section className="glass-luxury tech-grid-surface overflow-hidden rounded-[34px] p-5 md:p-6">
+        <div className="pointer-events-none absolute right-[-8%] top-[-20%] h-56 w-56 rounded-full bg-gold-400/10 blur-3xl" />
+        <div className="grid gap-5 xl:grid-cols-[1.14fr_0.86fr]">
+          <div className="space-y-4">
+            <div className="flex items-end justify-between gap-4">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--text-3)]">关键指标纵览</p>
+                <h2 className="mt-2 text-2xl font-bold text-[var(--text-1)]">核心成长矩阵</h2>
               </div>
-            ))}
-          </CardContent>
-        </Card>
-      </div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-gold-400/16 bg-gold-400/10 px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--accent-soft)]">
+                <span className="h-2 w-2 rounded-full bg-gold-400 shadow-[0_0_12px_rgba(245,201,92,0.65)]" />
+                Live
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {metricSnapshots.map((item) => (
+                <div
+                  key={item.label}
+                  className="group relative overflow-hidden rounded-[26px] border border-white/8 bg-white/[0.04] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/24"
+                >
+                  <div className="absolute inset-y-0 left-0 w-[3px] bg-[linear-gradient(180deg,rgba(255,217,126,0.12),rgba(255,217,126,0.95),rgba(255,217,126,0.16))]" />
+                  <div className="absolute right-[-18px] top-[-18px] h-20 w-20 rounded-full bg-gold-400/8 blur-2xl" />
+                  <div className="relative flex items-start justify-between gap-4">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[var(--text-3)]">{item.label}</p>
+                      <div className="mt-3 flex items-end gap-2">
+                        <span className="gradient-text text-[2rem] font-bold leading-none [font-family:var(--font-data)]">{item.value}</span>
+                        {item.unit ? <span className="pb-1 text-sm text-[var(--text-3)]">{item.unit}</span> : null}
+                      </div>
+                    </div>
+                    <span className="rounded-full border border-gold-400/14 bg-gold-400/10 px-3 py-1 text-[11px] font-semibold text-[var(--text-2)]">
+                      {item.trend}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-[30px] border border-white/8 bg-white/[0.04] p-5">
+            <div className="pointer-events-none absolute right-5 top-4">
+              <div className="tech-orbit h-24 w-24">
+                <span className="tech-orbit-dot" style={{ top: '16%', left: '16%' }} />
+                <span className="tech-orbit-dot" style={{ right: '18%', top: '22%', animationDelay: '0.4s' }} />
+                <div className="tech-orbit-core h-12 w-12 border border-gold-400/18 bg-[radial-gradient(circle,rgba(255,245,217,0.18),rgba(255,255,255,0.04))] text-[var(--accent-soft)]">
+                  <span className="text-[10px] font-bold tracking-[0.16em] [font-family:var(--font-data)]">7/30</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="max-w-[16rem]">
+              <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[var(--text-3)]">个性化建议</p>
+              <h2 className="mt-2 text-2xl font-bold text-[var(--text-1)]">7/30 天训练路径</h2>
+              <p className="mt-2 text-sm leading-6 text-[var(--text-2)]">根据成长档案与训练波动，输出下一阶段的动作优化重点。</p>
+            </div>
+
+            <div className="tech-rail mt-6 space-y-3 pl-8">
+              {suggestions.map((item, index) => (
+                <div key={item} className="relative">
+                  <span className="absolute -left-8 top-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gold-400/18 bg-[rgba(255,217,126,0.14)] text-[11px] font-bold text-[var(--accent-soft)]">
+                    {index + 1}
+                  </span>
+                  <div className="rounded-[22px] border border-white/8 bg-white/[0.04] px-4 py-4 text-sm leading-7 text-[var(--text-2)]">
+                    {item}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <TrendCharts
         lineCardSubtitle="命中率与速度随训练次数的细腻走势"
-        barCardSubtitle="将每次训练与阶段平均进行霓虹对比"
+        barCardSubtitle="将每次训练与阶段平均进行金色对比"
         tabs={[
           {
             key: 'quarter',
@@ -306,7 +358,7 @@ function ParentProfileTab() {
 
       <div className="mt-12">
         <ReportCallout
-          accent="cyan"
+          accent="gold"
           title="导出成长档案"
           description="获取完整的个人矫正成长档案 PDF，方便分享与留存。"
           actions={

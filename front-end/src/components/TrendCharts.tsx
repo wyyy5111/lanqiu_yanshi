@@ -16,7 +16,6 @@ import {
   Pie,
   Cell,
   Area,
-  LabelList,
   Legend,
 } from 'recharts';
 import { chartTheme } from '@/chart/theme';
@@ -307,22 +306,22 @@ export function TrendCharts({
             <TabsContent key={tab.key} value={tab.key} style={chartVars}>
               <div className="flex flex-col gap-10">
                 <div
-                  className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-white/85 p-6 shadow-xl ring-1 ring-slate-200/40 backdrop-blur dark:border-slate-800/60 dark:bg-slate-900/75 dark:ring-slate-700/50"
+                  className="u-card-glass chart-panel relative overflow-hidden rounded-[32px] p-6 md:p-7"
                   style={{ backgroundImage: accentBg }}
                 >
                   <div className="relative z-10 mb-4 flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--chart-accent)]/15 text-[var(--chart-accent)] shadow-inner shadow-[var(--chart-accent)]/25">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-[18px] border border-[var(--chart-grid)] bg-[var(--chart-panel)] text-[var(--chart-accent)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                       <span className="text-sm font-semibold">{tab.metricLabel ?? lineMetricLabel}</span>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-50">{tab.label}</h4>
+                      <h4 className="text-lg font-semibold text-[var(--chart-text)]">{tab.label}</h4>
                       {lineCardSubtitle ? (
-                        <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{lineCardSubtitle}</p>
+                        <p className="mt-1 text-xs text-[var(--text-3)]">{lineCardSubtitle}</p>
                       ) : null}
                     </div>
                   </div>
-                  <div className="relative h-64 rounded-2xl bg-white/75 p-4 shadow-inner dark:bg-slate-950/60">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--chart-accent)]/14 via-transparent to-transparent" aria-hidden />
+                  <div className="relative h-64 overflow-hidden rounded-[24px] border border-[var(--chart-grid)] bg-[var(--chart-panel)] p-4">
+                    <div className="absolute inset-0 rounded-[24px] bg-gradient-to-br from-[var(--chart-accent)]/10 via-transparent to-transparent" aria-hidden />
                     <div className="relative h-full w-full" data-chart-line-root="true">
                       <ResponsiveContainer width="100%" height="100%">
                         <LineChart key={lineChartKey} data={finalLineData} margin={{ top: 12, right: 24, bottom: 36, left: 12 }}>
@@ -379,13 +378,19 @@ export function TrendCharts({
                               r: chartTheme.dotR,
                               fill: accent,
                               stroke: chartTheme.dotStroke,
-                              strokeWidth: 1,
+                              strokeWidth: 2,
+                              style: {
+                                filter: 'drop-shadow(0 0 8px var(--chart-point-shadow))',
+                              },
                             }}
                             activeDot={{
                               r: chartTheme.activeDotR,
                               fill: accent,
                               stroke: chartTheme.activeDotStroke,
-                              strokeWidth: 1,
+                              strokeWidth: 3,
+                              style: {
+                                filter: 'drop-shadow(0 0 12px var(--chart-point-shadow))',
+                              },
                             }}
                             connectNulls
                             isAnimationActive={false}
@@ -396,27 +401,27 @@ export function TrendCharts({
                   </div>
                 </div>
                 <div
-                  className="relative overflow-hidden rounded-3xl border border-slate-200/60 bg-gradient-to-br from-white/90 via-white/60 to-white/30 p-6 shadow-xl ring-1 ring-slate-200/50 backdrop-blur dark:border-slate-800/60 dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 dark:ring-slate-700/50"
+                  className="u-card-glass chart-panel relative overflow-hidden rounded-[32px] p-6 md:p-7"
                   style={{ backgroundImage: `${accentBg}, linear-gradient(130deg, transparent, transparent)` }}
                 >
                   <div className="relative z-10 mb-4 flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-50">
+                      <h4 className="text-lg font-semibold text-[var(--chart-text)]">
                         {barCardTitle}
                         <span className="ml-2 text-sm font-semibold text-[var(--chart-accent)]">
                           {tab.metricLabel ?? barMetricLabel}
                         </span>
                       </h4>
-                      {barCardSubtitle ? <p className="text-xs text-slate-500 dark:text-slate-400">{barCardSubtitle}</p> : null}
+                      {barCardSubtitle ? <p className="text-xs text-[var(--text-3)]">{barCardSubtitle}</p> : null}
                     </div>
                     {tab.unit ? (
-                      <div className="rounded-full border border-white/40 bg-white/70 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm shadow-[var(--chart-accent)]/20 dark:border-slate-700/60 dark:bg-slate-800/70 dark:text-slate-200">
+                      <div className="rounded-full border border-[var(--chart-grid)] bg-[var(--chart-panel)] px-3 py-1 text-xs font-medium text-[var(--text-2)]">
                         单位：{tab.unit}
                       </div>
                     ) : null}
                   </div>
-                  <div className="relative h-72 rounded-2xl bg-white/75 p-5 shadow-inner dark:bg-slate-950/60 u-chart">
-                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-[var(--chart-accent)]/12 via-transparent to-transparent" aria-hidden />
+                  <div className="u-chart relative h-72 overflow-hidden rounded-[24px] border border-[var(--chart-grid)] bg-[var(--chart-panel)] p-5">
+                    <div className="absolute inset-0 rounded-[24px] bg-gradient-to-tr from-[var(--chart-accent)]/10 via-transparent to-transparent" aria-hidden />
                     <div className="relative h-full w-full">
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart key={barChartKey} data={compareBarData} margin={{ top: 24, right: 32, bottom: 32, left: 20 }} barGap={8} barCategoryGap={18}>
@@ -491,14 +496,14 @@ export function TrendCharts({
                     </div>
                   </div>
                   {tab.summary ? (
-                    <p className="mt-5 rounded-2xl bg-white/80 p-4 text-sm leading-relaxed text-slate-600 shadow-inner shadow-[var(--chart-accent)]/10 dark:bg-slate-950/60 dark:text-slate-200">
+                    <p className="mt-5 rounded-[22px] border border-white/8 bg-white/[0.04] p-4 text-sm leading-relaxed text-[var(--text-2)]">
                       {tab.summary}
                     </p>
                   ) : null}
                 </div>
                 {pie ? (
-                  <div className="u-card-glass p-4 u-divider-aurora">
-                  <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-100">比例分布</h4>
+                  <div className="u-card-glass u-divider-aurora p-4">
+                  <h4 className="text-sm font-semibold text-[var(--chart-text)]">比例分布</h4>
                   <div className="h-36">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
@@ -519,7 +524,7 @@ export function TrendCharts({
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
-                  <ul className="mt-2 space-y-1 text-xs text-slate-500 dark:text-slate-300">
+                  <ul className="mt-2 space-y-1 text-xs text-[var(--text-2)]">
                     {pie.map((slice, index) => (
                       <li key={slice.name} className="flex items-center gap-2">
                         <svg className="h-3 w-3" viewBox="0 0 8 8" aria-hidden="true">
@@ -539,4 +544,3 @@ export function TrendCharts({
   </div>
   );
 }
-

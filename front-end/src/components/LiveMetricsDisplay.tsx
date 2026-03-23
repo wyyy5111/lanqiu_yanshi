@@ -154,14 +154,13 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
 
   return (
     <div className="grid gap-4 xl:grid-cols-[1.5fr,1fr]">
-      {/* 视频播放器 */}
-      <Card className="bg-slate-900 relative overflow-hidden">
+      <Card className="u-card-glass relative overflow-hidden">
         <CardContent className="p-0 relative">
           <video
             ref={videoRef}
             src={videoUrl}
             controls
-            className="w-full h-auto rounded-lg max-h-[600px]"
+            className="h-auto max-h-[600px] w-full rounded-[28px] bg-black"
           >
             您的浏览器不支持视频播放。
           </video>
@@ -170,7 +169,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
           <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
             {/* 骨架辉光效果 */}
             {isPlaying && (
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-blue-500/5 to-transparent animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-gold-400/5 to-transparent animate-pulse" />
             )}
             
             {/* 训练类型特定装饰 */}
@@ -181,7 +180,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                   <path
                     d="M20,80 Q50,20 80,60"
                     fill="none"
-                    stroke="var(--c-shoot, #f59e0b)"
+                    stroke="var(--c-shoot, #f0b04b)"
                     strokeWidth="0.5"
                     strokeDasharray="2,2"
                     className="opacity-30 animate-pulse"
@@ -189,8 +188,8 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                 </svg>
                 
                 {/* 命中闪烁粒子 */}
-                <div className="absolute top-1/4 right-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-60" />
-                <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-orange-400 rounded-full animate-pulse opacity-40" />
+                <div className="absolute top-1/4 right-1/4 h-2 w-2 rounded-full bg-gold-300 opacity-60 animate-ping" />
+                <div className="absolute top-1/3 right-1/3 h-1 w-1 rounded-full bg-gold-500 opacity-40 animate-pulse" />
               </>
             )}
             
@@ -198,8 +197,8 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
               <>
                 {/* 节奏波纹 */}
                 <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2">
-                  <div className="w-8 h-8 border-2 border-purple-400 rounded-full animate-ping opacity-30" />
-                  <div className="absolute inset-0 w-4 h-4 bg-purple-400 rounded-full animate-pulse opacity-20 m-2" />
+                  <div className="h-8 w-8 rounded-full border-2 border-gold-400 animate-ping opacity-30" />
+                  <div className="absolute inset-0 m-2 h-4 w-4 rounded-full bg-gold-400 opacity-20 animate-pulse" />
                 </div>
               </>
             )}
@@ -211,7 +210,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                   <path
                     d="M50,10 L70,25 L70,50 L50,70 L30,50 L30,25 Z"
                     fill="none"
-                    stroke="var(--c-defense, #8b5cf6)"
+                    stroke="var(--c-defense, #c78f35)"
                     strokeWidth="0.3"
                     strokeDasharray="1,1"
                     className="opacity-25 animate-pulse"
@@ -228,7 +227,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
               return (
                 <div
                   key={key}
-                  className="absolute w-1 h-1 bg-red-400 rounded-full animate-ping"
+                  className="absolute h-1 w-1 rounded-full bg-[#ffb2af] animate-ping"
                   style={{
                     top: `${20 + (index * 15) % 60}%`,
                     left: `${10 + (index * 20) % 80}%`,
@@ -245,11 +244,11 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
       <div className="space-y-3">
         <Card>
           <CardHeader>
-            <CardTitle className="text-lg">实时指标数据</CardTitle>
+            <CardTitle className="text-lg text-white">实时指标数据</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {Object.keys(metricLabels).length === 0 ? (
-              <p className="text-sm text-slate-500">等待视频播放...</p>
+              <p className="text-sm text-[var(--text-3)]">等待视频播放...</p>
             ) : (
               Object.entries(metricLabels).map(([key, label]) => {
                 const value = currentMetrics[key];
@@ -265,18 +264,18 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                 return (
                   <div
                     key={key}
-                    className={`flex items-center justify-between p-3 rounded-lg transition-colors ${
+                    className={`flex items-center justify-between rounded-[20px] border p-3 transition-colors ${
                       isStandard 
-                        ? 'bg-slate-50 dark:bg-slate-800' 
-                        : 'bg-red-50 border border-red-200 dark:bg-red-900/20 dark:border-red-800'
+                        ? 'border-white/8 bg-white/[0.04]' 
+                        : 'border-[rgba(239,100,97,0.24)] bg-[rgba(239,100,97,0.1)]'
                     }`}
                   >
                     <div className="flex-1">
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                      <span className="text-sm font-medium text-white">
                         {label}
                       </span>
                       {range && (
-                        <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                        <div className="mt-1 text-xs text-[var(--text-3)]">
                           标准范围: {range.min !== undefined ? range.min : '∞'}
                           {range.max !== undefined ? ` - ${range.max}` : ''}
                           {range.unit}
@@ -285,14 +284,14 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                     </div>
                     <div className="text-right">
                       <span className={`text-lg font-bold ${
-                        isStandard ? 'text-brand' : 'text-red-600 dark:text-red-400'
+                        isStandard ? 'text-[var(--accent-soft)]' : 'text-[#ffb2af]'
                       }`}>
                         {displayValue}
                         {key.includes('angle') ? '°' : ''}
                       </span>
                       {total > 0 && (
                         <div className={`text-xs mt-1 ${
-                          isStandard ? 'text-slate-500' : 'text-red-600 dark:text-red-400'
+                          isStandard ? 'text-[var(--text-3)]' : 'text-[#ffb2af]'
                         }`}>
                           {isStandard
                             ? `达标 ${successCount}/${total} (${successPercentage}%)`
@@ -311,7 +310,7 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
         {Object.keys(nonStandardCounts).length > 0 && (
           <Card>
             <CardHeader>
-              <CardTitle className="text-lg">动作标准性统计</CardTitle>
+              <CardTitle className="text-lg text-white">动作标准性统计</CardTitle>
             </CardHeader>
             <CardContent className="space-y-2">
               {Object.entries(nonStandardCounts).map(([key, failureCount]) => {
@@ -325,18 +324,18 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                 return (
                   <div 
                     key={key} 
-                    className={`flex items-center justify-between p-2 rounded-lg ${
+                    className={`flex items-center justify-between rounded-[18px] border p-2 ${
                       isStandard 
-                        ? 'bg-green-50 dark:bg-green-900/20' 
-                        : 'bg-red-50 dark:bg-red-900/20'
+                        ? 'border-white/8 bg-white/[0.04]' 
+                        : 'border-[rgba(239,100,97,0.24)] bg-[rgba(239,100,97,0.1)]'
                     }`}
                   >
-                    <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                    <span className="text-sm font-medium text-white">
                       {label}
                     </span>
                     <div className="text-right">
                       <span className={`text-sm font-bold ${
-                        isStandard ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
+                        isStandard ? 'text-[var(--accent-soft)]' : 'text-[#ffb2af]'
                       }`}>
                         {isStandard
                           ? `达标 ${successCount}/${total} (${successPercentage}%)`
@@ -346,8 +345,8 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
                   </div>
                 );
               })}
-              <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
-                <div className="text-xs text-slate-500 dark:text-slate-400">
+              <div className="mt-3 border-t border-white/8 pt-3">
+                <div className="text-xs text-[var(--text-3)]">
                   统计基于2秒时间窗口检测
                 </div>
               </div>
@@ -355,19 +354,19 @@ export function LiveMetricsDisplay({ videoUrl, metricsData, metricLabels, traini
           </Card>
         )}
 
-        <Card className={isPlaying ? 'ring-2 ring-brand' : ''}>
+        <Card className={isPlaying ? 'border-gold-400/20' : ''}>
           <CardContent className="pt-6">
             <div className="flex items-center justify-center">
               {isPlaying ? (
                 <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-brand/20 flex items-center justify-center">
-                    <div className="w-8 h-8 bg-brand rounded-full animate-pulse" />
+                  <div className="mx-auto mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-gold-400/12">
+                    <div className="h-8 w-8 rounded-full bg-gold-400 animate-pulse" />
                   </div>
-                  <p className="text-sm font-medium text-slate-700">正在分析中...</p>
+                  <p className="text-sm font-medium text-white">正在分析中...</p>
                 </div>
               ) : (
                 <div className="text-center">
-                  <p className="text-sm text-slate-500">点击播放查看实时分析</p>
+                  <p className="text-sm text-[var(--text-3)]">点击播放查看实时分析</p>
                 </div>
               )}
             </div>

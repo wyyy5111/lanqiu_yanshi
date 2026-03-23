@@ -128,32 +128,43 @@ export function Defense() {
   };
 
   return (
-    <div className="space-y-6 u-defense-container">
-      {/* 防守盾牌装饰层 */}
+    <div className="space-y-6 u-defense-container relative">
+      {/* 增强版防守盾牌装饰层 - 金色光晕 */}
       <div className="u-shield-background"></div>
-      
-      <div className="flex items-center gap-4">
+
+      {/* 金色粒子装饰 */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-20 left-10 w-2 h-2 rounded-full bg-gold-400/60 animate-float" style={{animationDelay: '0s', animationDuration: '4s'}} />
+        <div className="absolute top-40 right-20 w-3 h-3 rounded-full bg-gold-500/40 animate-float" style={{animationDelay: '1s', animationDuration: '5s'}} />
+        <div className="absolute bottom-40 left-1/4 w-2 h-2 rounded-full bg-gold-400/50 animate-float" style={{animationDelay: '2s', animationDuration: '6s'}} />
+        <div className="absolute top-1/3 right-1/3 w-4 h-4 rounded-full bg-gold-300/30 animate-float" style={{animationDelay: '0.5s', animationDuration: '4.5s'}} />
+      </div>
+
+      {/* 金色光晕背景 */}
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-gradient-to-br from-gold-500/10 via-gold-400/5 to-transparent blur-3xl animate-glow-pulse pointer-events-none" />
+
+      <div className="flex items-center gap-4 relative z-10">
         <Button
           variant="ghost"
           size="sm"
           onClick={() => navigate('/coach/training')}
-          className="gap-2"
+          className="gap-2 text-gold-600 dark:text-gold-400 hover:text-gold-700 dark:hover:text-gold-300 hover:bg-gold-500/10"
         >
           <ArrowLeft className="w-4 h-4" />
           返回
         </Button>
-        <h1 className="text-2xl font-bold text-slate-800">防守训练分析</h1>
+        <h1 className="text-2xl font-bold gradient-text">防守训练分析</h1>
       </div>
 
-      <div className="u-card-glass is-defense p-6 rounded-xl">
-        <h2 className="text-lg font-semibold mb-2">分析指标</h2>
-        <p className="text-sm opacity-80 mb-3">
+      <div className="glass-luxury is-defense p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow relative z-10">
+        <h2 className="mb-2 text-lg font-semibold text-white">分析指标</h2>
+        <p className="mb-3 text-sm opacity-80 text-[var(--text-2)]">
           本页面将分析以下防守相关指标：
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
           {Object.values(METRIC_LABELS).map((label) => (
-            <div key={label} className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 rounded-full bg-current" />
+            <div key={label} className="flex items-center gap-2 text-sm text-[var(--text-2)]">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-400 shadow-gold-500/50" />
               {label}
             </div>
           ))}
@@ -163,14 +174,14 @@ export function Defense() {
       {!taskId ? (
         <VideoUpload onUploadComplete={handleUploadComplete} trainingType="defense" />
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-6 relative z-10">
           {/* AI分析状态显示 */}
           {analyzing && (
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center gap-3">
-              <Brain className="w-5 h-5 text-blue-600 animate-pulse" />
+            <div className="bg-gradient-to-r from-gold-500/10 to-amber-500/10 border border-gold-500/30 rounded-xl p-4 flex items-center gap-3 backdrop-blur-sm">
+              <Brain className="w-5 h-5 text-gold-600 dark:text-gold-400 animate-pulse" />
               <div>
-                <p className="text-sm font-medium text-blue-800">AI正在分析视频...</p>
-                <p className="text-xs text-blue-600">这可能需要几秒钟时间</p>
+                <p className="text-sm font-medium text-gold-700 dark:text-gold-300">AI正在分析视频...</p>
+                <p className="text-xs text-gold-600/70 dark:text-gold-400/70">这可能需要几秒钟时间</p>
               </div>
             </div>
           )}
@@ -178,13 +189,13 @@ export function Defense() {
           {/* AI分析结果和学员选择 */}
           {aiAnalysis && !showReport && (
             <div className="space-y-4">
-              <div className="u-card-glass is-defense p-6 rounded-xl ai-result-enter">
+              <div className="glass-luxury is-defense p-6 rounded-2xl border-2 border-gold-500/30 shadow-gold-glow ai-result-enter relative">
                 {/* 顶部分隔线 */}
                 <div className="u-sep-aurora mb-4"></div>
-                
+
                 <div className="flex items-start gap-6">
                   {/* 左侧圆形进度环 */}
-                  <div className="flex-shrink-0">
+                  <div className="flex-shrink-0 relative">
                     <div className="u-progress-ring" style={{'--progress': `${aiAnalysis.overallScore}%`} as React.CSSProperties}>
                       <svg className="w-20 h-20" viewBox="0 0 100 100">
                         <circle
@@ -194,7 +205,7 @@ export function Defense() {
                           fill="none"
                           stroke="currentColor"
                           strokeWidth="8"
-                          className="opacity-20"
+                          className="opacity-20 dark:opacity-40"
                         />
                         <circle
                           cx="50"
@@ -215,9 +226,11 @@ export function Defense() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-lg font-bold text-slate-800">{aiAnalysis.overallScore}</span>
+                        <span className="text-lg font-bold text-white">{aiAnalysis.overallScore}</span>
                       </div>
                     </div>
+                    {/* 进度环金色光晕 */}
+                    <div className="absolute inset-0 rounded-full bg-gold-500/20 blur-xl -z-10 animate-glow-pulse" />
                   </div>
 
                   {/* 右侧四色标签分栏 */}
@@ -230,8 +243,8 @@ export function Defense() {
                       </div>
                       <div className="tag-content">
                         {aiAnalysis.strengths?.slice(0, 2).map((strength, index) => (
-                          <p key={index} className="text-xs">{strength}</p>
-                        )) || <p className="text-xs opacity-60">暂无数据</p>}
+                          <p key={index} className="text-xs text-[var(--text-2)]">{strength}</p>
+                        )) || <p className="text-xs opacity-60 text-[var(--text-3)]">暂无数据</p>}
                       </div>
                     </div>
 
@@ -243,8 +256,8 @@ export function Defense() {
                       </div>
                       <div className="tag-content">
                         {aiAnalysis.improvementAreas?.slice(0, 2).map((area, index) => (
-                          <p key={index} className="text-xs">{area}</p>
-                        )) || <p className="text-xs opacity-60">暂无数据</p>}
+                          <p key={index} className="text-xs text-[var(--text-2)]">{area}</p>
+                        )) || <p className="text-xs opacity-60 text-[var(--text-3)]">暂无数据</p>}
                       </div>
                     </div>
 
@@ -256,8 +269,8 @@ export function Defense() {
                       </div>
                       <div className="tag-content">
                         {aiAnalysis.suggestions?.slice(0, 2).map((suggestion, index) => (
-                          <p key={index} className="text-xs">{suggestion}</p>
-                        )) || <p className="text-xs opacity-60">暂无数据</p>}
+                          <p key={index} className="text-xs text-[var(--text-2)]">{suggestion}</p>
+                        )) || <p className="text-xs opacity-60 text-[var(--text-3)]">暂无数据</p>}
                       </div>
                     </div>
 
@@ -268,7 +281,7 @@ export function Defense() {
                         <h4 className="tag-title">摘要</h4>
                       </div>
                       <div className="tag-content">
-                        <p className="text-xs">{aiAnalysis.summary}</p>
+                        <p className="text-xs text-[var(--text-2)]">{aiAnalysis.summary}</p>
                       </div>
                     </div>
                   </div>
@@ -287,8 +300,8 @@ export function Defense() {
               </div>
 
               {/* 学员选择和发送报告 */}
-              <div className="u-card-glass is-defense p-4 rounded-lg">
-                <h3 className="font-medium text-slate-800 mb-3">发送训练报告到家长端</h3>
+              <div className="glass-luxury is-defense p-4 rounded-xl border-2 border-gold-500/20">
+                <h3 className="mb-3 font-medium text-white">发送训练报告到家长端</h3>
                 <div className="space-y-3">
                   <div className="relative">
                     <StudentSelector
@@ -299,12 +312,12 @@ export function Defense() {
                     />
                     {/* 选中学员的视觉显示 */}
                     {selectedStudent && (
-                      <div className="mt-2 flex items-center gap-2 p-2 bg-slate-50 rounded-md">
-                        <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-400 to-blue-400 flex items-center justify-center text-white text-xs font-bold">
+                      <div className="mt-2 flex items-center gap-2 p-2 bg-gradient-to-r from-gold-500/10 to-amber-500/10 rounded-lg border border-gold-500/20">
+                        <div className="w-6 h-6 rounded-full bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-white text-xs font-bold shadow-lg shadow-gold-500/30">
                           {selectedStudent.name.charAt(0)}
                         </div>
-                        <span className="text-sm text-slate-700">{selectedStudent.name}</span>
-                        <span className="text-xs text-slate-500 bg-slate-200 px-2 py-1 rounded">
+                        <span className="text-sm font-medium text-white">{selectedStudent.name}</span>
+                        <span className="text-xs text-gold-600 dark:text-gold-400 bg-gold-500/10 px-2 py-1 rounded">
                           已选择学员
                         </span>
                       </div>
@@ -336,7 +349,7 @@ export function Defense() {
           {showReport && aiAnalysis && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-slate-800">训练报告</h3>
+                <h3 className="text-lg font-semibold text-white">训练报告</h3>
                 <Button
                   variant="outline"
                   size="sm"

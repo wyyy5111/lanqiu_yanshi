@@ -114,10 +114,12 @@ export function VideoPlayerWithOverlay({
     <div
       ref={containerRef}
       className={cn(
-        'relative aspect-[16/9] overflow-hidden rounded-3xl bg-slate-900 shadow-xl shadow-slate-900/30',
+        'relative aspect-[16/9] overflow-hidden rounded-[32px] border border-white/8 bg-black shadow-[0_28px_70px_rgba(0,0,0,0.4)]',
         className,
       )}
     >
+      <div className="pointer-events-none absolute inset-0 z-10 rounded-[32px] border border-gold-400/18" />
+      <div className="pointer-events-none absolute inset-x-5 top-0 z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(255,217,126,0.8),transparent)]" />
       {videoUrl ? (
         <video
           src={videoUrl}
@@ -130,10 +132,10 @@ export function VideoPlayerWithOverlay({
           ref={videoRef}
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950">
-          <div className="rounded-2xl bg-white/5 px-6 py-4 text-center text-sm text-slate-200 shadow-inner">
-            <p className="font-semibold">示例演示中</p>
-            <p className="mt-1 text-xs opacity-70">无摄像头接入，展示最近一次录制的姿态骨架</p>
+        <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle_at_top,rgba(255,217,126,0.08),transparent_30%),linear-gradient(135deg,#0a0a0c,#141417)]">
+          <div className="rounded-[24px] border border-white/8 bg-white/[0.04] px-6 py-4 text-center text-sm text-[var(--text-2)] shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+            <p className="font-semibold">视频回放中</p>
+            <p className="mt-1 text-xs opacity-70">无摄像头接入，当前载入最近一次录制的姿态骨架</p>
           </div>
         </div>
       )}
@@ -144,7 +146,7 @@ export function VideoPlayerWithOverlay({
         </div>
       ) : null}
       {overlayFooter ? (
-        <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between rounded-2xl bg-slate-900/70 px-4 py-3 text-xs text-slate-100 backdrop-blur">
+        <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between rounded-[22px] border border-white/10 bg-[rgba(5,5,7,0.76)] px-4 py-3 text-xs text-[var(--text-1)] backdrop-blur-xl">
           {overlayFooter}
         </div>
       ) : null}

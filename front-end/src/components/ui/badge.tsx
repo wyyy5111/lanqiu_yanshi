@@ -2,16 +2,15 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const badgeVariants = cva(
-  'inline-flex items-center rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-xs font-medium uppercase tracking-wide text-slate-600 transition-colors dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300',
+  'inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors',
   {
     variants: {
       variant: {
-        default: 'border-transparent bg-brand/10 text-brand',
-        outline:
-          'border border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100',
-        success: 'border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
-        warning: 'border-transparent bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
-        danger: 'border-transparent bg-accent/20 text-accent',
+        default: 'border-[rgba(255,217,126,0.16)] bg-[rgba(255,217,126,0.08)] text-[var(--accent-soft)]',
+        outline: 'border-white/10 bg-white/[0.04] text-[var(--text-2)]',
+        success: 'border-[rgba(217,198,132,0.24)] bg-[rgba(217,198,132,0.12)] text-[#ead8a2]',
+        warning: 'border-[rgba(242,141,69,0.26)] bg-[rgba(242,141,69,0.12)] text-[#ffbb87]',
+        danger: 'border-[rgba(239,100,97,0.26)] bg-[rgba(239,100,97,0.12)] text-[#ffb2af]',
       },
     },
     defaultVariants: {
